@@ -27,6 +27,12 @@
                 "destructuring": "any",
                 "ignoreReadBeforeAssign": false
             }
+        ],
+        "camelcase": [
+            "error",
+            {
+                "properties": "always"
+            }
         ]
     }
 }
