@@ -1,4 +1,4 @@
-# frontend-2nd-service
+# frontend-2nd-service by Myunagha Cho
 
 ## 활용 기술 - HTML, CSS, JS
 
