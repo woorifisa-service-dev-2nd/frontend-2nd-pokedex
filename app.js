@@ -1,3 +1,7 @@
+import { pokomonList } from "./poketmonList.js";
+
+// const testlist = pokomonList[0];
+
 const map = new Map();
 
 map.set(`1`, `bulbasaur`);
@@ -12,26 +16,52 @@ map.set(`squirtle`, `꼬부기`);
 
 const searchText = document.getElementById(`searchText`);
 const searchBtn = document.getElementById(`searchBtn`);
-const pokemonName = document.getElementById(`pokemonName`);
-const pokemonId = document.getElementById(`id`);
-const image = document.getElementById(`image`);
-const type1 = document.getElementById(`type1`);
-const type2 = document.getElementById(`type2`);
 
-searchBtn.addEventListener(`click`, async () => {
+// const pokemonName = document.getElementById(`pokemonName`);
+// const pokemonId = document.getElementById(`id`);
+// const image = document.getElementById(`image`);
+// const type1 = document.getElementById(`type1`);
+// const type2 = document.getElementById(`type2`);
+
+const pokemonName = document.getElementsByClassName(`pokemonName`);
+const pokemonId = document.getElementsByClassName(`id`);
+const image = document.getElementsByClassName(`image`);
+const type1 = document.getElementsByClassName(`type1`);
+const type2 = document.getElementsByClassName(`type2`);
+
+searchBtn.addEventListener(`click`, () => {
     const idOrName = searchText.value;
+    console.log(searchText.value);
 
-    const item = await getPekemonInfo(`${map.get(idOrName)}`);
+    const te = document.getElementById(`pokemonListArea`);
+    te.innerHTML = ``;
 
-    console.log(item.pokemonName);
+    console.log(pokomonList[0]);
 
-    pokemonSearch(
-        item.pokemonName,
-        item.pokemonId,
-        item.type1,
-        item.type2,
-        item.image,
+    console.log(idOrName);
+
+    const searchPokemon = pokomonList.filter(
+        (element) =>
+            element.name === idOrName || element.id.toString() === idOrName,
     );
+
+    const searchResult = pokemonSearch2(idOrName);
+
+    // addHtml(searchResult);
+
+    searchResult.forEach((element) => {
+        addHtml(element);
+    });
+
+    searchPokemon.forEach((element) => {
+        pokemonSearch(
+            element.name,
+            element.id,
+            element.types[0],
+            element.types[1],
+            element.img,
+        );
+    });
 });
 
 const getPekemonInfo = async (idOrName) => {
@@ -74,24 +104,51 @@ const enterkey = async () => {
 
         const item = await getPekemonInfo(`${map.get(idOrName)}`);
 
+        console.log(pokomonList);
+
+        const testlist = pokomonList[0];
+
         pokemonSearch(
-            item.pokemonName,
-            item.pokemonId,
-            item.type1,
-            item.type2,
-            item.image,
+            testlist.name,
+            testlist.id,
+            testlist.types[0],
+            testlist.types[1],
+            testlist.img,
         );
     }
 };
 
 const pokemonSearch = (a, b, c, d, e) => {
-    pokemonName.innerHTML = `<img class='poke-ball' src="poke-ball.png" alt="" />${map.get(
-        a,
-    )}`;
-    pokemonId.innerHTML = `# ${b}`;
-    type1.innerHTML = c;
-    type2.innerHTML = d;
-    image.setAttribute(`src`, e);
+    if (d !== undefined) type2[0].innerHTML = d;
+    else type2[0].innerHTML = ``;
+
+    pokemonName[0].innerHTML = a;
+    pokemonId[0].innerHTML = `# ${b}`;
+    type1[0].innerText = c;
+    // type2[0].innerHTML = d;
+    image[0].setAttribute(`src`, e);
+
+    addHtml(b);
+};
+
+const addHtml = (item) => {
+    const pokemonListArea = document.getElementById(`pokemonListArea`);
+    const newTag = document.createElement(`div`);
+    newTag.setAttribute(`class`, `pokemonCrad`);
+    newTag.setAttribute(`id`, `pokemonCrad_${item.id}`);
+    newTag.innerHTML = `
+                <p class="pokemonName">${item.name}</p>
+                <p class="id"># ${item.id}</p>
+                <img class="image" src="${item.img}" alt="" /><br />
+                <span class="type1">${item.types[0]}</span>
+                <span class="type2">${item.types[1]}</span>`;
+
+    pokemonListArea.appendChild(newTag);
+};
+
+const pokemonSearch2 = (input) => {
+    const regex = new RegExp(`${input}`, `g`);
+    return pokomonList.filter((pockemon) => pockemon.name.match(regex));
 };
 
 const [
@@ -116,27 +173,22 @@ const [
 ] = document.getElementsByClassName(`type_button`);
 
 const typeButtonHandler = (event) => {
-    // 현재 클릭된 타입 이미지
-    console.log(event.currentTarget.childNodes[1].src);
-    // 현재 클릭된 타입 이름
-    console.log(event.currentTarget.childNodes[3].innerText);
+    pokemonSearch(`이상해`);
+    searchInputControl.innerHTML =
+        `<span class="searchTypeResult"><img src=${event.currentTarget.childNodes[1].src} width="32" height="32" />
+            <span>${event.currentTarget.childNodes[3].innerText}</span></span>
+    ` +
+        searchText.outerHTML +
+        searchBtn.outerHTML;
+
+    const target = pokomons.filter((pockemon) =>
+        pockemon.types.includes(event.currentTarget.childNodes[3].innerText),
+    );
+
+    // 3. 아래 pokemonListArea 에 포켓몬 보여주기
+    console.log(target);
 };
 
-normalButton.addEventListener(`click`, typeButtonHandler);
-fightingButton.addEventListener(`click`, typeButtonHandler);
-flyingButton.addEventListener(`click`, typeButtonHandler);
-poisonButton.addEventListener(`click`, typeButtonHandler);
-groundButton.addEventListener(`click`, typeButtonHandler);
-rockButton.addEventListener(`click`, typeButtonHandler);
-bugButton.addEventListener(`click`, typeButtonHandler);
-ghostButton.addEventListener(`click`, typeButtonHandler);
-steelButton.addEventListener(`click`, typeButtonHandler);
-fireButton.addEventListener(`click`, typeButtonHandler);
-waterButton.addEventListener(`click`, typeButtonHandler);
-grassButton.addEventListener(`click`, typeButtonHandler);
-electricButton.addEventListener(`click`, typeButtonHandler);
-psychicButton.addEventListener(`click`, typeButtonHandler);
-iceButton.addEventListener(`click`, typeButtonHandler);
-dragonButton.addEventListener(`click`, typeButtonHandler);
-darkButton.addEventListener(`click`, typeButtonHandler);
-fairyButton.addEventListener(`click`, typeButtonHandler);
+typeButtons.forEach((button) =>
+    button.addEventListener(`click`, typeButtonHandler),
+);

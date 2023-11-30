@@ -4,8 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>WOORI 포켓몬 도감</title>
-        <script defer src="./app.js"></script>
-        <script defer src="./poketmonList.js"></script>
+        <script defer src="./poketmonList.js" type="module"></script>
+        <script defer src="./app.js" type="module"></script>
         <link rel="stylesheet" href="/style.css" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,7 +28,7 @@
         </header>
         <main class="main">
             <div id="searchArea">
-                <div>
+                <div class="searchInputArea">
                     <input
                         id="searchText"
                         type="text"
@@ -209,14 +209,14 @@
                     <span>페어리</span>
                 </button>
             </div>
-            <div id="pokemonListArea">
-                <div class="pokemonId">
-                    <p id="pokemonName"></p>
-                    <p id="id"></p>
-                    <img id="image" src="" alt="" /><br />
-                    <span id="type1"></span>
-                    <span id="type2"></span>
-                </div>
+            <div id="pokemonListArea" class="list_container">
+                <!-- <div class="pokemonCrad">
+                    <p class="pokemonName"></p>
+                    <p class="id"></p>
+                    <img class="image" src="" alt="" /><br />
+                    <span class="type1"></span>
+                    <span class="type2"></span>
+                </div> -->
             </div>
         </main>
         <footer></footer>
