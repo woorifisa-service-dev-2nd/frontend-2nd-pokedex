@@ -1,9 +1,4 @@
-const text = document.getElementById(`poketmon`);
-const img = document.getElementById(`img`);
-const optionsFrom = (method, body, headers) => {
-    method, body, headers;
-};
-
+//속성-한글 데이터
 const typeListAll = [
     { id: 1, ko: `노말`, name: `normal` },
     { id: 2, ko: `격투`, name: `fighting` },
@@ -25,27 +20,23 @@ const typeListAll = [
     { id: 18, ko: `페어리`, name: `fairy` },
 ];
 
-// 전체 포켓몬을 줄세워 데려오기
+// 전체 포켓몬을 줄세워 데려오기 *{name, url} Array: end-start+1개
 const getPocketmonList = (start, end) => {
-    // url = `https://pokeapi.co/api/v2/pokemon?limit=1292&offset=0`; //id : 0~1291
+    //url = `https://pokeapi.co/api/v2/pokemon?limit=1292&offset=0`; //id : 0~1291
     url = `https://pokeapi.co/api/v2/pokemon?limit=${end}&offset=${start}`;
-    const options = optionsFrom(`GET`);
+    const options = { method: "GET" };
 
     const array = fetch(url, options)
-        .then((response) => {
-            return response.json();
-        }) // promise, return
+        .then((response) => response.json())
         .then((object) => {
-            return object.results.map((obj) => {
-                return getItem(obj.name);
-            });
+            object.results.map((obj) => getItem(obj.name));
         });
 
-    // {name, url} Array: *1292
+    // ={name, url} Array: *1292
     return array;
 };
 
-// 속성 한글 매핑
+// 속성한글 이름을 위 typeListAll데이터에서 찾아 매핑
 const mapEngTypeNameToKorTypeName = (data) => {
     return data.map((item) => {
         const enName = item.type.name;
@@ -53,29 +44,20 @@ const mapEngTypeNameToKorTypeName = (data) => {
     });
 };
 
-// 포켓몬 타입으로 검색
-const getPockemonByType = (id) => {
-    fetch(`https://pokeapi.co/api/v2/type/${id}`)
-        .then((res) => res.json())
-        .then((result) => console.log(result.pokemon));
-};
-
-// 해당 id의
-
+// 해당 name을 가진 포켓몬의 정보를 담은 객체 반환
 const getItem = (name) => {
-    // 설명 가져오기
+    // 설명 가져오기 : https://pokeapi.co/api/v2/pokemon-species/${id}'으로 직접요청을 하면 내용이 비거나 404 요청이 돼서
     return fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
         .then((spInfo) => spInfo.json())
         .then((o) => {
-            // console.log(o);
             const PocketMon = {
-                newUrl: o.species.url,
+                new_url: o.species.url,
                 id: o.id,
                 name: `이름`,
-                enName: `nana`,
-                flavorText: ``,
-                genera: `종`,
-                types: mapEngTypeNameToKorTypeName(o.types), // TODO
+                enName: `enName`,
+                flavorText: `flavorText`,
+                genera: `genera`,
+                types: mapEngTypeNameToKorTypeName(o.types), //한글 속성으로 변경
                 img:
                     o?.sprites?.versions?.[`generation-v`]?.[`black-white`]
                         ?.animated?.front_default || o?.sprites?.front_default,
@@ -107,6 +89,6 @@ const getItem = (name) => {
         });
 };
 
-// getPocketmonList(0, 750); // id 386~ 진화종 1291
+// getPocketmonList(0, 1292); // 0~1292
 
 getPocketmonList(0, 500);
