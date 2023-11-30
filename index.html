@@ -4,8 +4,9 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>WOORI 포켓몬 도감</title>
-        <script defer src="./app.js"></script>
-        <script defer src="./poketmonList.js"></script>
+        <script defer src="./app.js" type="module"></script>
+        <script defer src="./poketmonList.js" type="module"></script>
+
         <link rel="stylesheet" href="/style.css" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,7 +29,7 @@
         </header>
         <main class="main">
             <div id="searchArea">
-                <div>
+                <div class="searchInputArea">
                     <input
                         id="searchText"
                         type="text"

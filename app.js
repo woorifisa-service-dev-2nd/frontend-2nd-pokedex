@@ -1,3 +1,5 @@
+import { pokomons } from "./poketmonList.js";
+
 const map = new Map();
 
 map.set(`1`, `bulbasaur`);
@@ -17,9 +19,11 @@ const pokemonId = document.getElementById(`id`);
 const image = document.getElementById(`image`);
 const type1 = document.getElementById(`type1`);
 const type2 = document.getElementById(`type2`);
+const [searchInputControl] = document.getElementsByClassName(`searchInputArea`);
 
 searchBtn.addEventListener(`click`, async () => {
     const idOrName = searchText.value;
+    console.log(searchText.value);
 
     const item = await getPekemonInfo(`${map.get(idOrName)}`);
 
@@ -84,59 +88,35 @@ const enterkey = async () => {
     }
 };
 
-const pokemonSearch = (a, b, c, d, e) => {
-    pokemonName.innerHTML = `<img class='poke-ball' src="poke-ball.png" alt="" />${map.get(
-        a,
-    )}`;
-    pokemonId.innerHTML = `# ${b}`;
-    type1.innerHTML = c;
-    type2.innerHTML = d;
-    image.setAttribute(`src`, e);
+const pokemonSearch = (input) => {
+    pokomons.forEach((pockemon) => {
+        const regex = new RegExp(`${input}`, `g`);
+
+        if (pockemon.name.match(regex)) {
+            console.log(pockemon);
+        }
+    });
 };
 
-const [
-    normalButton,
-    fightingButton,
-    flyingButton,
-    poisonButton,
-    groundButton,
-    rockButton,
-    bugButton,
-    ghostButton,
-    steelButton,
-    fireButton,
-    waterButton,
-    grassButton,
-    electricButton,
-    psychicButton,
-    iceButton,
-    dragonButton,
-    darkButton,
-    fairyButton,
-] = document.getElementsByClassName(`type_button`);
+const typeButtons = document.querySelectorAll(`button`);
 
 const typeButtonHandler = (event) => {
-    // 현재 클릭된 타입 이미지
-    console.log(event.currentTarget.childNodes[1].src);
-    // 현재 클릭된 타입 이름
-    console.log(event.currentTarget.childNodes[3].innerText);
+    pokemonSearch(`이상해`);
+    searchInputControl.innerHTML =
+        `<span class="searchTypeResult"><img src=${event.currentTarget.childNodes[1].src} width="32" height="32" />
+            <span>${event.currentTarget.childNodes[3].innerText}</span></span>
+    ` +
+        searchText.outerHTML +
+        searchBtn.outerHTML;
+
+    const target = pokomons.filter((pockemon) =>
+        pockemon.types.includes(event.currentTarget.childNodes[3].innerText),
+    );
+
+    // 3. 아래 pokemonListArea 에 포켓몬 보여주기
+    console.log(target);
 };
 
-normalButton.addEventListener(`click`, typeButtonHandler);
-fightingButton.addEventListener(`click`, typeButtonHandler);
-flyingButton.addEventListener(`click`, typeButtonHandler);
-poisonButton.addEventListener(`click`, typeButtonHandler);
-groundButton.addEventListener(`click`, typeButtonHandler);
-rockButton.addEventListener(`click`, typeButtonHandler);
-bugButton.addEventListener(`click`, typeButtonHandler);
-ghostButton.addEventListener(`click`, typeButtonHandler);
-steelButton.addEventListener(`click`, typeButtonHandler);
-fireButton.addEventListener(`click`, typeButtonHandler);
-waterButton.addEventListener(`click`, typeButtonHandler);
-grassButton.addEventListener(`click`, typeButtonHandler);
-electricButton.addEventListener(`click`, typeButtonHandler);
-psychicButton.addEventListener(`click`, typeButtonHandler);
-iceButton.addEventListener(`click`, typeButtonHandler);
-dragonButton.addEventListener(`click`, typeButtonHandler);
-darkButton.addEventListener(`click`, typeButtonHandler);
-fairyButton.addEventListener(`click`, typeButtonHandler);
+typeButtons.forEach((button) =>
+    button.addEventListener(`click`, typeButtonHandler),
+);
