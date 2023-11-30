@@ -17,9 +17,9 @@
             "error",
             "backtick"
         ],
-        "semi-style": [
+        "semi": [
             "error",
-            "last"
+            "always"
         ],
         "prefer-const": [
             "error",
