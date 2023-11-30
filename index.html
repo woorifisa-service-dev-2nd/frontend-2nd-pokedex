@@ -27,7 +27,24 @@
             />
         </header>
         <main class="main">
-            <div>검색창</div>
+            <div id="searchArea">
+                <div>
+                    <input
+                        id="searchText"
+                        type="text"
+                        name=""
+                        onkeyup="enterkey()"
+                    />
+                    <!-- <img id="searchImg" src="search_img.png" alt="search_img" /> -->
+                    <button id="searchBtn">
+                        <img
+                            id="searchImg"
+                            src="search_img.png"
+                            alt="search_img"
+                        />
+                    </button>
+                </div>
+            </div>
             <div class="type_container">
                 <button class="type_button" id="normal">
                     <img
@@ -192,7 +209,15 @@
                     <span>페어리</span>
                 </button>
             </div>
-            // 포켓몬 카드 리스트
+             <div id="pokemonListArea">
+                <div class="pokemonId">
+                    <p id="pokemonName"></p>
+                    <p id="id"></p>
+                    <img id="image" src="" alt="" /><br />
+                    <span id="type1"></span>
+                    <span id="type2"></span>
+                </div>
+            </div>
         </main>
         <footer></footer>
     </body>

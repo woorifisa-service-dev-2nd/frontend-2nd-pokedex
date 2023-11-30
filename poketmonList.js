@@ -1,4 +1,4 @@
-//속성-한글 데이터
+// 속성-한글 데이터
 const typeListAll = [
     { id: 1, ko: `노말`, name: `normal` },
     { id: 2, ko: `격투`, name: `fighting` },
@@ -22,9 +22,9 @@ const typeListAll = [
 
 // 전체 포켓몬을 줄세워 데려오기 *{name, url} Array: end-start+1개
 const getPocketmonList = (start, end) => {
-    //url = `https://pokeapi.co/api/v2/pokemon?limit=1292&offset=0`; //id : 0~1291
+    // url = `https://pokeapi.co/api/v2/pokemon?limit=1292&offset=0`; //id : 0~1291
     url = `https://pokeapi.co/api/v2/pokemon?limit=${end}&offset=${start}`;
-    const options = { method: "GET" };
+    const options = { method: `GET` };
 
     const array = fetch(url, options)
         .then((response) => response.json())
@@ -57,7 +57,7 @@ const getItem = (name) => {
                 enName: `enName`,
                 flavorText: `flavorText`,
                 genera: `genera`,
-                types: mapEngTypeNameToKorTypeName(o.types), //한글 속성으로 변경
+                types: mapEngTypeNameToKorTypeName(o.types), // 한글 속성으로 변경
                 img:
                     o?.sprites?.versions?.[`generation-v`]?.[`black-white`]
                         ?.animated?.front_default || o?.sprites?.front_default,
