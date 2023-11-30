@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+        <script defer src="app.js"></script>
+        <script defer src="poketmonList.js"></script>
+    </head>
+
+    <body>
+        <main>
+            <div id="searchArea">
+                <div>
+                    <input
+                        id="searchText"
+                        type="text"
+                        name=""
+                        onkeyup="enterkey()"
+                    />
+                    <!-- <img id="searchImg" src="search_img.png" alt="search_img" /> -->
+                    <button id="searchBtn">
+                        <img
+                            id="searchImg"
+                            src="search_img.png"
+                            alt="search_img"
+                        />
+                    </button>
+                </div>
+            </div>
+
+            <div id="pokemonListArea">
+                <div class="pokemonId">
+                    <p id="pokemonName"></p>
+                    <p id="id"></p>
+                    <img id="image" src="" alt="" /><br />
+                    <span id="type1"></span>
+                    <span id="type2"></span>
+                </div>
+            </div>
+
+            <p id="text"></p>
+            <button id="test">test</button>
+            <img id="img" src="" alt="" />
+        </main>
+    </body>
+</html>
