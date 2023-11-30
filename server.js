@@ -5,10 +5,25 @@ const app = express();
 
 app.use(express.json());
 
-const key = `lbBtjYruWTWQuqCbMaJOz2xf2suJqyeOOB1Xdp2baNY`;
-
 app.get(`/`, (req, res) => {
     res.sendFile(__dirname + `./index.html`);
 });
+
+app.get(`pockemonNames`, (req, res) => {
+    // const url = `https://pokeapi.co/api/v2/pokemon?limit=${end}&offset=${start}`;
+    // const options = { method: `GET` };
+    // // ={name, url} Array: *1292
+    // return fetch(
+    //     `https://pokeapi.co/api/v2/pokemon?limit=${end}&offset=${start}`,
+    //     options,
+    // )
+    //     .then((response) => response.json())
+    //     .then((object) => {
+    //         // console.log(object);
+    //         return object.results.map((obj) => getItem(obj.name));
+    //     });
+});
+
+app.get(`/pockemons`, (req, res) => {});
 
 app.listen(3000);

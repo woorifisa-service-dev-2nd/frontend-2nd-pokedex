@@ -20,7 +20,7 @@ const typeListAll = [
     { id: 18, ko: `페어리`, name: `fairy` },
 ];
 
-export let pokomons;
+export let pokomonList;
 
 // 전체 포켓몬을 줄세워 데려오기 *{name, url} Array: end-start+1개
 const getPocketmonList = (start, end) => {
@@ -46,11 +46,7 @@ const mapEngTypeNameToKorTypeName = (data) => {
 
 // 해당 name을 가진 포켓몬의 정보를 담은 객체 반환
 const getItem = (name) => {
-    return fetch(`https://pokeapi.co/api/v2/pokemon/${name}`, {
-        headers: {
-            Accept: `application / json`,
-        },
-    })
+    return fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
         .then((spInfo) => spInfo.json())
         .then((o) => {
             return {
@@ -95,7 +91,7 @@ const getItem = (name) => {
 
 getPocketmonList(0, 500).then((res) => {
     Promise.all(res).then((res) => {
-        pokomons = res;
-        console.log(pokomons);
+        pokomonList = res;
+        console.log(pokomonList);
     });
 });
