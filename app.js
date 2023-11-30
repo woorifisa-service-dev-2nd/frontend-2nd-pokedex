@@ -1,3 +1,7 @@
+import { pokomonList } from "./poketmonList.js";
+
+// const testlist = pokomonList[0];
+
 const map = new Map();
 
 map.set(`1`, `bulbasaur`);
@@ -12,26 +16,51 @@ map.set(`squirtle`, `꼬부기`);
 
 const searchText = document.getElementById(`searchText`);
 const searchBtn = document.getElementById(`searchBtn`);
-const pokemonName = document.getElementById(`pokemonName`);
-const pokemonId = document.getElementById(`id`);
-const image = document.getElementById(`image`);
-const type1 = document.getElementById(`type1`);
-const type2 = document.getElementById(`type2`);
 
-searchBtn.addEventListener(`click`, async () => {
+// const pokemonName = document.getElementById(`pokemonName`);
+// const pokemonId = document.getElementById(`id`);
+// const image = document.getElementById(`image`);
+// const type1 = document.getElementById(`type1`);
+// const type2 = document.getElementById(`type2`);
+
+const pokemonName = document.getElementsByClassName(`pokemonName`);
+const pokemonId = document.getElementsByClassName(`id`);
+const image = document.getElementsByClassName(`image`);
+const type1 = document.getElementsByClassName(`type1`);
+const type2 = document.getElementsByClassName(`type2`);
+
+searchBtn.addEventListener(`click`, () => {
     const idOrName = searchText.value;
 
-    const item = await getPekemonInfo(`${map.get(idOrName)}`);
+    const te = document.getElementById(`pokemonListArea`);
+    te.innerHTML = ``;
 
-    console.log(item.pokemonName);
+    console.log(pokomonList[0]);
 
-    pokemonSearch(
-        item.pokemonName,
-        item.pokemonId,
-        item.type1,
-        item.type2,
-        item.image,
+    console.log(idOrName);
+
+    const searchPokemon = pokomonList.filter(
+        (element) =>
+            element.name === idOrName || element.id.toString() === idOrName,
     );
+
+    const searchResult = pokemonSearch2(idOrName);
+
+    // addHtml(searchResult);
+
+    searchResult.forEach((element) => {
+        addHtml(element);
+    });
+
+    searchPokemon.forEach((element) => {
+        pokemonSearch(
+            element.name,
+            element.id,
+            element.types[0],
+            element.types[1],
+            element.img,
+        );
+    });
 });
 
 const getPekemonInfo = async (idOrName) => {
@@ -74,24 +103,51 @@ const enterkey = async () => {
 
         const item = await getPekemonInfo(`${map.get(idOrName)}`);
 
+        console.log(pokomonList);
+
+        const testlist = pokomonList[0];
+
         pokemonSearch(
-            item.pokemonName,
-            item.pokemonId,
-            item.type1,
-            item.type2,
-            item.image,
+            testlist.name,
+            testlist.id,
+            testlist.types[0],
+            testlist.types[1],
+            testlist.img,
         );
     }
 };
 
 const pokemonSearch = (a, b, c, d, e) => {
-    pokemonName.innerHTML = `<img class='poke-ball' src="poke-ball.png" alt="" />${map.get(
-        a,
-    )}`;
-    pokemonId.innerHTML = `# ${b}`;
-    type1.innerHTML = c;
-    type2.innerHTML = d;
-    image.setAttribute(`src`, e);
+    if (d !== undefined) type2[0].innerHTML = d;
+    else type2[0].innerHTML = ``;
+
+    pokemonName[0].innerHTML = a;
+    pokemonId[0].innerHTML = `# ${b}`;
+    type1[0].innerText = c;
+    // type2[0].innerHTML = d;
+    image[0].setAttribute(`src`, e);
+
+    addHtml(b);
+};
+
+const addHtml = (item) => {
+    const pokemonListArea = document.getElementById(`pokemonListArea`);
+    const newTag = document.createElement(`div`);
+    newTag.setAttribute(`class`, `pokemonCrad`);
+    newTag.setAttribute(`id`, `pokemonCrad_${item.id}`);
+    newTag.innerHTML = `
+                <p class="pokemonName">${item.name}</p>
+                <p class="id"># ${item.id}</p>
+                <img class="image" src="${item.img}" alt="" /><br />
+                <span class="type1">${item.types[0]}</span>
+                <span class="type2">${item.types[1]}</span>`;
+
+    pokemonListArea.appendChild(newTag);
+};
+
+const pokemonSearch2 = (input) => {
+    const regex = new RegExp(`${input}`, `g`);
+    return pokomonList.filter((pockemon) => pockemon.name.match(regex));
 };
 
 const [

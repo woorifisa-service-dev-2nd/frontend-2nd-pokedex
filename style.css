@@ -57,6 +57,26 @@ main {
     }
 }
 
+.list_container {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 40px;
+    grid-gap: 10px;
+}
+
+@media screen and (min-width: 1400px) {
+    .list_container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1400px) {
+    .list_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 .type_button {
     display: flex;
     justify-content: center;
@@ -167,23 +187,23 @@ main {
 }
 
 #pokemonListArea {
-    display: flex;
+    /* display: flex;
     justify-content: center;
     margin-top: 100px;
-    text-align: center;
+    text-align: center; */
 }
 
-.pokemonId {
-    margin-left: 20px;
+.pokemonCrad {
+    margin-left: 10px;
     box-shadow: 0 4px 4px -4px black;
     border: 1px solid rgb(201, 185, 185);
     border-radius: 8px;
-    width: 30%;
-    height: 300px;
+    width: 80%;
+    height: 350px;
     font-size: 20px;
 }
 
-#image {
+.image {
     width: 100px;
 }
 

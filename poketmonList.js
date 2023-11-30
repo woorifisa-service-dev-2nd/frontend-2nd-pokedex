@@ -20,7 +20,7 @@ const typeListAll = [
     { id: 18, ko: `페어리`, name: `fairy` },
 ];
 
-let pokomonList;
+export let pokomonList;
 
 // 전체 포켓몬을 줄세워 데려오기 *{name, url} Array: end-start+1개
 const getPocketmonList = (start, end) => {
