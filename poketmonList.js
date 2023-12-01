@@ -1,3 +1,4 @@
+import { searchEventAll } from "./app.js";
 // 속성-한글 데이터
 const typeListAll = [
     { id: 1, ko: `노말`, name: `normal` },
@@ -97,5 +98,6 @@ getPocketmonList(0, 500).then((res) => {
     Promise.all(res).then((res) => {
         pokomonList = res;
         console.log(pokomonList);
+        searchEventAll();
     });
 });

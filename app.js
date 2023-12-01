@@ -18,7 +18,7 @@ searchText.addEventListener('keyup', () => {
     }
 })
 // 클릭, 엔터 이벤트 공통
-const searchEventAll = () => {
+export const searchEventAll = () => {
     const idOrName = searchText.value;
     const pokemonListArea = document.getElementById(`pokemonListArea`);
     pokemonListArea.innerHTML = ``;
