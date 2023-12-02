@@ -13,7 +13,7 @@ searchBtn.addEventListener(`click`, () => {
     searchEventAll();
 });
 
-// 검색 엔터키 이벤트
+// 검색창 속성값 삭제
 searchInputControl.addEventListener('click', () => {
     searchInputControl.innerHTML = ``;
     searchText.focus();
