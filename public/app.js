@@ -14,6 +14,12 @@ searchBtn.addEventListener(`click`, () => {
 });
 
 // 검색 엔터키 이벤트
+searchInputControl.addEventListener('click', () => {
+    searchInputControl.innerHTML = ``;
+    searchText.focus();
+})
+
+// 검색 엔터키 이벤트
 searchText.addEventListener('keyup', () => {
     if (window.event.keyCode === 13) {
         // 엔터키가 눌렸을 때
@@ -73,6 +79,7 @@ const typeButtonHandler = (event) => {
 
     console.log("text", event.currentTarget.childNodes[3].innerText);
 
+    searchText.value = ``;
     pokemonListArea.innerHTML = ``;
     main.style.height = `auto`;
 
