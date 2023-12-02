@@ -13,6 +13,12 @@ searchBtn.addEventListener(`click`, () => {
     searchEventAll();
 });
 
+// 검색창 속성값 삭제
+searchInputControl.addEventListener(`click`, () => {
+    searchInputControl.innerHTML = ``;
+    searchText.focus();
+})
+
 // 검색 엔터키 이벤트
 searchText.addEventListener(`keyup`, () => {
     if (window.event.keyCode === 13) {
@@ -85,6 +91,7 @@ const typeButtonHandler = (event) => {
 
     console.log(`text`, event.currentTarget.childNodes[3].innerText);
 
+    searchText.value = ``;
     pokemonListArea.innerHTML = ``;
     main.style.height = `auto`;
 
