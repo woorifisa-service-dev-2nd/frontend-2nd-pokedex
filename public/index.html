@@ -1,214 +1,214 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WOORI 포켓몬 도감</title>
-    <script defer src="../pokemonList.js" type="module"></script>
-    <script defer src="../app.js" type="module"></script>
-    <link rel="stylesheet" href="/style.css" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>WOORI 포켓몬 도감</title>
+        <script defer src="../pokemonList.js" type="module"></script>
+        <script defer src="../app.js" type="module"></script>
+        <link rel="stylesheet" href="/style.css" />
 
-    <link rel="icon" href="./images/pokeball.png" />
+        <link rel="icon" href="./images/pokeball.png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap"
+            rel="stylesheet"
+        />
+    </head>
 
-  <body>
-    <header class="navbar">
-      <img
-        class="logo"
-        src="./images/Pokemon_logo.svg"
-        alt="포켓몬"
-        width="200"
-        height="60"
-      />
-    </header>
-    <main class="loading main" id="main">
-      <span class="loading-pikachu"></span>
-      <div id="searchArea">
-        <div class="searchInputControl"></div>
-        <div class="searchInputArea">
-          <input id="searchText" type="text" name="" />
-          <button id="searchBtn">
+    <body>
+        <header class="navbar">
             <img
-              id="searchImg"
-              src="./images/search_img.png"
-              alt="search_img"
+                class="logo"
+                src="./images/Pokemon_logo.svg"
+                alt="포켓몬"
+                width="200"
+                height="60"
             />
-          </button>
-        </div>
-      </div>
-      <div class="type_container">
-        <button class="type_button" id="normal">
-          <img
-            src="./images/type-images/normal.svg"
-            alt="normal type"
-            width="20"
-            height="20"
-          />
-          <span>노말</span>
-        </button>
-        <button class="type_button" id="fighting">
-          <img
-            src="./images/type-images/fighting.svg"
-            alt="fighting type"
-            width="20"
-            height="20"
-          />
-          <span>격투</span>
-        </button>
-        <button class="type_button" id="flying">
-          <img
-            src="./images/type-images/flying.svg"
-            alt="flying type"
-            width="20"
-            height="20"
-          />
-          <span>비행</span>
-        </button>
-        <button class="type_button" id="poison">
-          <img
-            src="./images/type-images/poison.svg"
-            alt="poison type"
-            width="20"
-            height="20"
-          />
-          <span>독</span>
-        </button>
-        <button class="type_button" id="ground">
-          <img
-            src="./images/type-images/ground.svg"
-            alt="ground type"
-            width="20"
-            height="20"
-          />
-          <span>땅</span>
-        </button>
-        <button class="type_button" id="rock">
-          <img
-            src="./images/type-images/rock.svg"
-            alt="rock type"
-            width="20"
-            height="20"
-          />
-          <span>바위</span>
-        </button>
-        <button class="type_button" id="bug">
-          <img
-            src="./images/type-images/bug.svg"
-            alt="bug type"
-            width="20"
-            height="20"
-          />
-          <span>벌레</span>
-        </button>
-        <button class="type_button" id="ghost">
-          <img
-            src="./images/type-images/ghost.svg"
-            alt="ghost type"
-            width="20"
-            height="20"
-          />
-          <span>고스트</span>
-        </button>
-        <button class="type_button" id="steel">
-          <img
-            src="./images/type-images/steel.svg"
-            alt="steel type"
-            width="20"
-            height="20"
-          />
-          <span>강철</span>
-        </button>
-        <button class="type_button" id="fire">
-          <img
-            src="./images/type-images/fire.svg"
-            alt="fire type"
-            width="20"
-            height="20"
-          />
-          <span>불꽃</span>
-        </button>
-        <button class="type_button" id="water">
-          <img
-            src="./images/type-images/water.svg"
-            alt="water type"
-            width="20"
-            height="20"
-          />
-          <span>물</span>
-        </button>
-        <button class="type_button" id="grass">
-          <img
-            src="./images/type-images/grass.svg"
-            alt="grass type"
-            width="20"
-            height="20"
-          />
-          <span>풀</span>
-        </button>
-        <button class="type_button" id="electric">
-          <img
-            src="./images/type-images/electric.svg"
-            alt="electric type"
-            width="20"
-            height="20"
-          />
-          <span>전기</span>
-        </button>
-        <button class="type_button" id="psychic">
-          <img
-            src="./images/type-images/psychic.svg"
-            alt="psychic type"
-            width="20"
-            height="20"
-          />
-          <span>에스퍼</span>
-        </button>
-        <button class="type_button" id="ice">
-          <img
-            src="./images/type-images/ice.svg"
-            alt="ice type"
-            width="20"
-            height="20"
-          />
-          <span>얼음</span>
-        </button>
-        <button class="type_button" id="dragon">
-          <img
-            src="./images/type-images/dragon.svg"
-            alt="dragon type"
-            width="20"
-            height="20"
-          />
-          <span>드래곤</span>
-        </button>
-        <button class="type_button" id="dark">
-          <img
-            src="./images/type-images/dark.svg"
-            alt="dark type"
-            width="20"
-            height="20"
-          />
-          <span>악</span>
-        </button>
-        <button class="type_button" id="fairy">
-          <img
-            src="./images/type-images/fairy.svg"
-            alt="fairy type"
-            width="20"
-            height="20"
-          />
-          <span>페어리</span>
-        </button>
-      </div>
-      <div id="pokemonListArea" class="list_container"></div>
-    </main>
-    <footer></footer>
-  </body>
+        </header>
+        <main class="loading main" id="main">
+            <span class="loading-pikachu"></span>
+            <div id="searchArea">
+                <div class="searchInputControl"></div>
+                <div class="searchInputArea">
+                    <input id="searchText" type="text" name="" />
+                    <button id="searchBtn">
+                        <img
+                            id="searchImg"
+                            src="./images/search_img.png"
+                            alt="search_img"
+                        />
+                    </button>
+                </div>
+            </div>
+            <div class="type_container">
+                <button class="type_button" id="normal">
+                    <img
+                        src="./images/type-images/normal.svg"
+                        alt="normal type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>노말</span>
+                </button>
+                <button class="type_button" id="fighting">
+                    <img
+                        src="./images/type-images/fighting.svg"
+                        alt="fighting type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>격투</span>
+                </button>
+                <button class="type_button" id="flying">
+                    <img
+                        src="./images/type-images/flying.svg"
+                        alt="flying type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>비행</span>
+                </button>
+                <button class="type_button" id="poison">
+                    <img
+                        src="./images/type-images/poison.svg"
+                        alt="poison type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>독</span>
+                </button>
+                <button class="type_button" id="ground">
+                    <img
+                        src="./images/type-images/ground.svg"
+                        alt="ground type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>땅</span>
+                </button>
+                <button class="type_button" id="rock">
+                    <img
+                        src="./images/type-images/rock.svg"
+                        alt="rock type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>바위</span>
+                </button>
+                <button class="type_button" id="bug">
+                    <img
+                        src="./images/type-images/bug.svg"
+                        alt="bug type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>벌레</span>
+                </button>
+                <button class="type_button" id="ghost">
+                    <img
+                        src="./images/type-images/ghost.svg"
+                        alt="ghost type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>고스트</span>
+                </button>
+                <button class="type_button" id="steel">
+                    <img
+                        src="./images/type-images/steel.svg"
+                        alt="steel type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>강철</span>
+                </button>
+                <button class="type_button" id="fire">
+                    <img
+                        src="./images/type-images/fire.svg"
+                        alt="fire type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>불꽃</span>
+                </button>
+                <button class="type_button" id="water">
+                    <img
+                        src="./images/type-images/water.svg"
+                        alt="water type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>물</span>
+                </button>
+                <button class="type_button" id="grass">
+                    <img
+                        src="./images/type-images/grass.svg"
+                        alt="grass type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>풀</span>
+                </button>
+                <button class="type_button" id="electric">
+                    <img
+                        src="./images/type-images/electric.svg"
+                        alt="electric type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>전기</span>
+                </button>
+                <button class="type_button" id="psychic">
+                    <img
+                        src="./images/type-images/psychic.svg"
+                        alt="psychic type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>에스퍼</span>
+                </button>
+                <button class="type_button" id="ice">
+                    <img
+                        src="./images/type-images/ice.svg"
+                        alt="ice type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>얼음</span>
+                </button>
+                <button class="type_button" id="dragon">
+                    <img
+                        src="./images/type-images/dragon.svg"
+                        alt="dragon type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>드래곤</span>
+                </button>
+                <button class="type_button" id="dark">
+                    <img
+                        src="./images/type-images/dark.svg"
+                        alt="dark type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>악</span>
+                </button>
+                <button class="type_button" id="fairy">
+                    <img
+                        src="./images/type-images/fairy.svg"
+                        alt="fairy type"
+                        width="20"
+                        height="20"
+                    />
+                    <span>페어리</span>
+                </button>
+            </div>
+            <div id="pokemonListArea" class="list_container"></div>
+        </main>
+        <footer></footer>
+    </body>
 </html>
