@@ -21,10 +21,17 @@ const typeListAll = [
 ];
 
 const express = require(`express`);
-const request = require("request");
+const request = require(`request`);
 
 // 하나의 고유한 서버 인스턴스 생성해서 app이라는 변수에 할당
 const app = express();
+
+app.use(express.static(`public`));
+app.use(express.json());
+
+app.listen(3000, function () {
+    console.log(`http://localhost:3000/ app listening on port 3000`);
+});
 
 // 속성한글 이름을 위 typeListAll데이터에서 찾아 매핑
 const mapEngTypeNameToKorTypeName = (data) => {
@@ -34,22 +41,19 @@ const mapEngTypeNameToKorTypeName = (data) => {
     });
 };
 
-app.use(express.static("public"));
-app.use(express.json());
-
-app.get(`/`, (req, res) => {
-    res.sendFile(`index.html`);
-});
-
 const setOptions = (url) => {
     return {
         url,
         method: `GET`,
         headers: {
-            "Content-Type": "application/json",
+            "Content-Type": `application/json`,
         },
     };
 };
+
+app.get(`/`, (req, res) => {
+    res.sendFile(`index.html`);
+});
 
 /**
  *  포켓몬 start~end까지 이름과  url 불러오는 요청
@@ -64,7 +68,7 @@ app.get(`/pokemons`, (req, res) => {
             `https://pokeapi.co/api/v2/pokemon?limit=${end}&offset=${start}`,
         ),
         function (error, response, body) {
-            if (!error && response.statusCode == 200) {
+            if (!error && response.statusCode === 200) {
                 const names = JSON.parse(body).results.map((obj) => obj.name);
                 res.json(names);
             }
@@ -120,5 +124,3 @@ app.get(`/pokemon`, (req, res) => {
         },
     );
 });
-
-app.listen(3000);
