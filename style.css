@@ -184,6 +184,7 @@ main {
     font-size: 25px;
     margin-bottom: 5%;
     background-color: white;
+    cursor: pointer;
 }
 .image {
     width: 100px;

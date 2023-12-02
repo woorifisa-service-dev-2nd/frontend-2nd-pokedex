@@ -24,7 +24,7 @@ export const searchEventAll = () => {
     pokemonListArea.innerHTML = ``;
 
     // 정규식 검색, 다중 검색
-    const searchResult = pokemonSearch2(idOrName);
+    const searchResult = pokemonSearch(idOrName);
     searchResult.forEach((element) => {
         addHtml(element);
     });
@@ -54,6 +54,38 @@ const addHtml = (item) => {
                 `;
     pokemonListArea.appendChild(newTag);
 };
+
+
+const pokemonSearch = (input) => {
+    const regex = new RegExp(`${input}`, `g`);
+    return pokomonList.filter((pockemon) => pockemon.name.match(regex));
+};
+const typeButtons = document.querySelectorAll(`button`);
+const typeButtonHandler = (event) => {
+    // pokemonSearch(`이상해`);
+    // searchInputControl.innerHTML =
+    //     `<span class="searchTypeResult"><img src=${event.currentTarget.childNodes[1].src} width="32" height="32" />
+    //         <span>${event.currentTarget.childNodes[3].innerText}</span></span>
+    // ` +
+    //     searchText.outerHTML +
+    //     searchBtn.outerHTML;
+    const pokemonListArea = document.getElementById(`pokemonListArea`);
+    pokemonListArea.innerHTML = ``;
+    const target = pokomonList.filter((pockemon) =>
+    pockemon.types.includes(event.currentTarget.childNodes[3].innerText),
+    );
+    // 3. 아래 pokemonListArea 에 포켓몬 보여주기
+    console.log(target);
+    target.forEach((element) => {
+        addHtml(element);
+    });
+};
+
+typeButtons.forEach(button => {
+    if (button.id !== `searchBtn`) {
+        button.addEventListener(`click`, typeButtonHandler);
+    }
+});
 
 // 속성 타입 선택
 const selectTypes = (type) => {
@@ -115,35 +147,3 @@ const selectTypes = (type) => {
         return ``;
     }
 }
-
-const pokemonSearch2 = (input) => {
-    const regex = new RegExp(`${input}`, `g`);
-    return pokomonList.filter((pockemon) => pockemon.name.match(regex));
-};
-const typeButtons = document.querySelectorAll(`button`);
-const typeButtonHandler = (event) => {
-    // pokemonSearch(`이상해`);
-    // searchInputControl.innerHTML =
-    //     `<span class="searchTypeResult"><img src=${event.currentTarget.childNodes[1].src} width="32" height="32" />
-    //         <span>${event.currentTarget.childNodes[3].innerText}</span></span>
-    // ` +
-    //     searchText.outerHTML +
-    //     searchBtn.outerHTML;
-    const pokemonListArea = document.getElementById(`pokemonListArea`);
-    pokemonListArea.innerHTML = ``;
-    const target = pokomonList.filter((pockemon) =>
-        pockemon.types.includes(event.currentTarget.childNodes[3].innerText),
-    );
-    // 3. 아래 pokemonListArea 에 포켓몬 보여주기
-    console.log(target);
-    target.forEach((element) => {
-        addHtml(element);
-    });
-};
-
-typeButtons.forEach(button => {
-    if (button.id !== `searchBtn`) {
-        // console.log(button.id);
-        button.addEventListener(`click`, typeButtonHandler);
-    }
-});
