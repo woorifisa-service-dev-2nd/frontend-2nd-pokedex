@@ -19,6 +19,7 @@ const getPokemonNames = async (start, end) => {
     return await fetch(url, options)
         .then((response) => response.json())
         .then((names) => {
+            console.log("names", names);
             return names.map((name) => {
                 return getPokemonDetail(name);
             });
@@ -58,8 +59,8 @@ const getPokemonDetail = async (name) => {
 const getPokemonGroups = async (limit) => {
     let offset = 0;
     while (offset < limit) {
-        await getPokemonNames(offset, 10).then(async (res) => {
-            await Promise.all(res).then((res) => {
+        await getPokemonNames(offset, 10).then(async (names) => {
+            await Promise.all(names).then((res) => {
                 pokemonList = pokemonList.concat(res);
             });
         });
@@ -69,4 +70,4 @@ const getPokemonGroups = async (limit) => {
     return pokemonList;
 };
 
-getPokemonGroups(30).then((res) => console.log("final", res));
+getPokemonGroups(700).then((res) => console.log("final", res));

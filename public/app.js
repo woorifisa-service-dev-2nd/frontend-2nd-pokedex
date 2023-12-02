@@ -133,7 +133,7 @@ typeButtons.forEach((button) =>
 
 let loadingCheck = setInterval(() => {
     if (!loading) {
-        console.log("done", pokemonList);
+        // console.log("done", pokemonList);
         main.classList.remove("loading");
         main.childNodes[1].style.display = "none";
 
