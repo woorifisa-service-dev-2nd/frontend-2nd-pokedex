@@ -49,7 +49,7 @@ main {
 
 @media screen and (min-width: 1400px) {
     .type_container {
-        grid-template-columns: repeat(12, 1fr);
+        grid-template-columns: repeat(10, 1fr);
     }
 }
 
