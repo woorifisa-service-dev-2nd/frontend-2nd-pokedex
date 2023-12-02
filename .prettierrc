@@ -1,4 +1,5 @@
 {
     "plugins": ["prettier-plugin-css-order"],
+    "tabWidth": 4,
     "trailingComma": "all"
 }
