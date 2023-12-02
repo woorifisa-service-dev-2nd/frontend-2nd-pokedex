@@ -3,9 +3,9 @@ export let loading;
 loading = true;
 
 const options = {
-    method: "GET",
+    method: `GET`,
     headers: {
-        "Content-Type": "application/json",
+        "Content-Type": `application/json`,
     },
 };
 
@@ -19,7 +19,7 @@ const getPokemonNames = async (start, end) => {
     return await fetch(url, options)
         .then((response) => response.json())
         .then((names) => {
-            console.log("names", names);
+            console.log(`names`, names);
             return names.map((name) => {
                 return getPokemonDetail(name);
             });
@@ -70,4 +70,4 @@ const getPokemonGroups = async (limit) => {
     return pokemonList;
 };
 
-getPokemonGroups(700).then((res) => console.log("final", res));
+getPokemonGroups(700).then((res) => console.log(`final`, res));

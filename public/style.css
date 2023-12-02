@@ -109,58 +109,76 @@ main {
 }
 
 /* 타입 버튼 배경색 지정 */
-#normal, .normal {
+#normal,
+.normal {
     background-color: rgb(148 148 149);
 }
-#fighting, .fighting {
+#fighting,
+.fighting {
     background-color: rgb(224 156 64);
 }
-#flying, .flying {
+#flying,
+.flying {
     background-color: rgb(162 195 231);
 }
-#poison, .poison {
+#poison,
+.poison {
     background-color: rgb(115 81 152);
 }
-#ground, .ground {
+#ground,
+.ground {
     background-color: rgb(156 119 67);
 }
-#rock, .rock {
+#rock,
+.rock {
     background-color: rgb(191 184 137);
 }
-#bug, .bug {
+#bug,
+.bug {
     background-color: rgb(159 162 68);
 }
-#ghost, .ghost {
+#ghost,
+.ghost {
     background-color: rgb(104 72 112);
 }
-#steel, .steel {
+#steel,
+.steel {
     background-color: rgb(105 169 199);
 }
-#fire, .fire {
+#fire,
+.fire {
     background-color: rgb(229 108 62);
 }
-#water, .water {
+#water,
+.water {
     background-color: rgb(81 133 197);
 }
-#grass, .grass {
+#grass,
+.grass {
     background-color: rgb(102 169 69);
 }
-#electric, .electric {
+#electric,
+.electric {
     background-color: rgb(246 216 81);
 }
-#psychic, .psychic {
+#psychic,
+.psychic {
     background-color: rgb(221 107 123);
 }
-#ice, .ice {
+#ice,
+.ice {
     background-color: rgb(109 200 235);
 }
-#dragon, .dragon {
+#dragon,
+.dragon {
     background-color: rgb(83 92 168);
 }
-#dark, .dark {
+#dark,
+.dark {
     background-color: rgb(76 73 72);
 }
-#fairy, .fairy {
+#fairy,
+.fairy {
     background-color: rgb(218 180 212);
 }
 
@@ -206,17 +224,17 @@ main {
     /* background-color: var(--grass); */
 }
 
-.pokemonCrad {
+.pokemonCard {
+    cursor: pointer;
+    margin-bottom: 5%;
     margin-left: 10px;
     box-shadow: 0 4px 4px -4px black;
     border: 1px solid rgb(240, 232, 232);
     border-radius: 25px;
+    background-color: white;
     width: 95%;
     height: 400px;
     font-size: 25px;
-    margin-bottom: 5%;
-    background-color: white;
-    cursor: pointer;
 }
 
 .image {
@@ -279,26 +297,26 @@ main {
     height: 285px;
 }
 
-.image-gif{
+.image-gif {
     height: 30%;
 }
 
 .types {
     display: flex;
-    margin-top: 15%;
     justify-content: center;
+    margin-top: 15%;
     color: white;
 }
 
 .type1 {
-    border: 1px solid;
-    width: 40%;
     margin-right: 5%;
+    border: 1px solid;
     border-radius: 24px;
+    width: 40%;
 }
 
 .type2 {
     border: 1px solid;
-    width: 40%;
     border-radius: 24px;
+    width: 40%;
 }

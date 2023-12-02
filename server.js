@@ -82,7 +82,7 @@ app.get(`/pokemon`, (req, res) => {
     request(
         setOptions(`https://pokeapi.co/api/v2/pokemon/${name}`),
         function (error, response, body) {
-            if (!error && response.statusCode == 200) {
+            if (!error && response.statusCode === 200) {
                 const result = JSON.parse(body);
                 const pokemon = {
                     newUrl: result.species.url,
@@ -105,7 +105,7 @@ app.get(`/pokemon`, (req, res) => {
                 request.get(
                     setOptions(pokemon.newUrl),
                     function (error, response, body) {
-                        if (!error && response.statusCode == 200) {
+                        if (!error && response.statusCode === 200) {
                             const result = JSON.parse(body);
 
                             pokemon.flavorText =

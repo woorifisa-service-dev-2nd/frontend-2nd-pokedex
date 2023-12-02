@@ -1,10 +1,10 @@
 import { pokemonList, loading } from "./pokemonList.js";
 
-const main = document.getElementById("main");
+const main = document.getElementById(`main`);
 const searchText = document.getElementById(`searchText`);
 const searchBtn = document.getElementById(`searchBtn`);
 const [searchInputControl] =
-    document.getElementsByClassName("searchInputControl");
+    document.getElementsByClassName(`searchInputControl`);
 
 const pokemonListArea = document.getElementById(`pokemonListArea`);
 
@@ -14,12 +14,12 @@ searchBtn.addEventListener(`click`, () => {
 });
 
 // 검색 엔터키 이벤트
-searchText.addEventListener('keyup', () => {
+searchText.addEventListener(`keyup`, () => {
     if (window.event.keyCode === 13) {
         // 엔터키가 눌렸을 때
         searchEventAll();
     }
-})
+});
 
 // 클릭, 엔터 이벤트 공통
 export const searchEventAll = () => {
@@ -32,30 +32,42 @@ export const searchEventAll = () => {
     searchResult.forEach((element) => {
         addHtml(element);
     });
-}
+};
 
 // 포켓몬 리스트 추가
 const addHtml = (item) => {
     const pokeImg = `./images/poke-ball.png`;
     const newTag = document.createElement(`div`);
-    newTag.setAttribute(`class`, `pokemonCrad`);
-    newTag.setAttribute(`id`, `pokemonCrad_${item.id}`);
+    newTag.setAttribute(`class`, `pokemonCard`);
+    newTag.setAttribute(`id`, `pokemonCard_${item.id}`);
 
     // 속성 타입 선택
     const typeClass1 = selectTypes(item.types[0]);
     const typeClass2 = selectTypes(item.types[1]);
 
+    /* eslint-disable indent */
     newTag.innerHTML = `
-                <p class="pokemonName"><img src="${pokeImg}" alt="" />${item.name}</p>
+                <p class="pokemonName"><img src="${pokeImg}" alt="" />${
+                    item.name
+                }</p>
                 <p class="id"># ${item.id}</p>
                 <div class="image-gif">
                     <img class="image" src="${item.img}" alt="" /><br />
                 </div>
                 <div class="types">
-                    ${item.types.length === 1 ? `<span class="type1 ${typeClass1}" style="border: 1px solid; width: 90%; margin-left: 5%">${item.types[0]}</span>` : ``}
-                    ${item.types.length === 2 ? `<span class="type1 ${typeClass1}">${item.types[0]}</span><span class="type2 ${typeClass2}">${item.types[1]}</span>` : ``}
+                    ${
+                        item.types.length === 1
+                            ? `<span class="type1 ${typeClass1}" style="border: 1px solid; width: 90%; margin-left: 5%">${item.types[0]}</span>`
+                            : ``
+                    }
+                    ${
+                        item.types.length === 2
+                            ? `<span class="type1 ${typeClass1}">${item.types[0]}</span><span class="type2 ${typeClass2}">${item.types[1]}</span>`
+                            : ``
+                    }
                 </div>
                 `;
+    /* eslint-enable indent */
     pokemonListArea.appendChild(newTag);
 };
 
@@ -71,7 +83,7 @@ const typeButtonHandler = (event) => {
             <span>${event.currentTarget.childNodes[3].innerText}</span></span>
     `;
 
-    console.log("text", event.currentTarget.childNodes[3].innerText);
+    console.log(`text`, event.currentTarget.childNodes[3].innerText);
 
     pokemonListArea.innerHTML = ``;
     main.style.height = `auto`;
@@ -83,7 +95,6 @@ const typeButtonHandler = (event) => {
     // 3. 아래 pokemonListArea 에 포켓몬 보여주기
     console.log(target);
 
-    
     target.forEach((element) => {
         addHtml(element);
     });
@@ -93,11 +104,11 @@ typeButtons.forEach((button) =>
     button.addEventListener(`click`, typeButtonHandler),
 );
 
-let loadingCheck = setInterval(() => {
+const loadingCheck = setInterval(() => {
     if (!loading) {
         // console.log("done", pokemonList);
-        main.classList.remove("loading");
-        main.childNodes[1].style.display = "none";
+        main.classList.remove(`loading`);
+        main.childNodes[1].style.display = `none`;
 
         clearInterval(loadingCheck);
     }
@@ -107,59 +118,41 @@ let loadingCheck = setInterval(() => {
 const selectTypes = (type) => {
     if (type === `노말`) {
         return `normal`;
-    }
-    else if (type === `격투`) {
+    } else if (type === `격투`) {
         return `fighting`;
-    }
-    else if (type === `비행`) {
+    } else if (type === `비행`) {
         return `flying`;
-    }
-    else if (type === `독`) {
+    } else if (type === `독`) {
         return `poison`;
-    }
-    else if (type === `땅`) {
+    } else if (type === `땅`) {
         return `ground`;
-    }
-    else if (type === `바위`) {
+    } else if (type === `바위`) {
         return `rock`;
-    }
-    else if (type === `벌레`) {
+    } else if (type === `벌레`) {
         return `bug`;
-    }
-    else if (type === `고스트`) {
+    } else if (type === `고스트`) {
         return `ghost`;
-    }
-    else if (type === `강철`) {
+    } else if (type === `강철`) {
         return `steel`;
-    }
-    else if (type === `불꽃`) {
+    } else if (type === `불꽃`) {
         return `fire`;
-    }
-    else if (type === `물`) {
+    } else if (type === `물`) {
         return `water`;
-    }
-    else if (type === `풀`) {
+    } else if (type === `풀`) {
         return `grass`;
-    }
-    else if (type === `전기`) {
+    } else if (type === `전기`) {
         return `electric`;
-    }
-    else if (type === `에스퍼`) {
+    } else if (type === `에스퍼`) {
         return `psychic`;
-    }
-    else if (type === `얼음`) {
+    } else if (type === `얼음`) {
         return `ice`;
-    }
-    else if (type === `드래곤`) {
+    } else if (type === `드래곤`) {
         return `dragon`;
-    }
-    else if (type === `악`) {
+    } else if (type === `악`) {
         return `dark`;
-    }
-    else if (type === `페어리`) {
+    } else if (type === `페어리`) {
         return `fairy`;
-    }
-    else {
+    } else {
         return ``;
     }
-}
+};
