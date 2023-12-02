@@ -14,7 +14,7 @@ searchBtn.addEventListener(`click`, () => {
 });
 
 // 검색창 속성값 삭제
-searchInputControl.addEventListener('click', () => {
+searchInputControl.addEventListener(`click`, () => {
     searchInputControl.innerHTML = ``;
     searchText.focus();
 })
