@@ -1,0 +1,20 @@
+:root {
+    --normal: rgb(148 148 149);
+    --fighting: rgb(224 156 64);
+    --flying: rgb(162 195 231);
+    --poison: rgb(115 81 152);
+    --ground: rgb(156 119 67);
+    --rock: rgb(191 184 137);
+    --bug: rgb(159 162 68);
+    --ghost: rgb(104 72 112);
+    --steel: rgb(105 169 199);
+    --fire: rgb(229 108 62);
+    --water: rgb(81 133 197);
+    --grass: rgb(102 169 69);
+    --electric: rgb(246 216 81);
+    --psychic: rgb(221 107 123);
+    --ice: rgb(109 200 235);
+    --dragon: rgb(83 92 168);
+    --dark: rgb(76 73 72);
+    --fairy: rgb(218 180 212);
+}

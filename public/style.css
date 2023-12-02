@@ -1,3 +1,5 @@
+@import "root.css";
+
 html,
 body {
     box-sizing: border-box;
@@ -5,29 +7,38 @@ body {
     padding: 0;
     width: 100%;
     min-width: 480px;
-    height: 300%;
+    height: 100vh;
     font-family: "Black Han Sans", sans-serif;
 }
+
 .navbar {
     display: flex;
     position: fixed;
     top: 0;
     align-items: center;
+
+    z-index: 100;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+
     background-color: white;
+
     padding: 25px;
+
     width: 100%;
     height: 30px;
 }
+
 .logo {
     cursor: pointer;
 }
+
 main {
     background-color: rgba(0, 0, 0, 0.1);
     padding-top: 80px;
     width: 100%;
     height: 100%;
 }
+
 .type_container {
     display: grid;
     grid-template-rows: auto;
@@ -35,16 +46,19 @@ main {
     margin: 40px;
     grid-gap: 10px;
 }
+
 @media screen and (min-width: 1400px) {
     .type_container {
         grid-template-columns: repeat(12, 1fr);
     }
 }
+
 @media screen and (min-width: 900px) and (max-width: 1400px) {
     .type_container {
         grid-template-columns: repeat(6, 1fr);
     }
 }
+
 .list_container {
     display: grid;
     grid-template-rows: auto;
@@ -52,21 +66,25 @@ main {
     margin: 40px;
     grid-gap: 10px;
 }
+
 @media screen and (min-width: 1400px) {
     .list_container {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
 @media screen and (min-width: 900px) and (max-width: 1400px) {
     .list_container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
 @media screen and (max-width: 900px) {
     .list_container {
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
 .type_button {
     display: flex;
     justify-content: center;
@@ -77,77 +95,84 @@ main {
     padding: 4px 26px;
     width: 120px;
 }
+
 .type_button:hover {
     box-shadow:
         rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
         rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
+
 .type_button span {
     color: white;
     font-weight: bold;
     font-size: 1rem;
 }
+
 /* 타입 버튼 배경색 지정 */
-#normal {
+#normal, .normal {
     background-color: rgb(148 148 149);
 }
-#fighting {
+#fighting, .fighting {
     background-color: rgb(224 156 64);
 }
-#flying {
+#flying, .flying {
     background-color: rgb(162 195 231);
 }
-#poison {
+#poison, .poison {
     background-color: rgb(115 81 152);
 }
-#ground {
+#ground, .ground {
     background-color: rgb(156 119 67);
 }
-#rock {
+#rock, .rock {
     background-color: rgb(191 184 137);
 }
-#bug {
+#bug, .bug {
     background-color: rgb(159 162 68);
 }
-#ghost {
+#ghost, .ghost {
     background-color: rgb(104 72 112);
 }
-#steel {
+#steel, .steel {
     background-color: rgb(105 169 199);
 }
-#fire {
+#fire, .fire {
     background-color: rgb(229 108 62);
 }
-#water {
+#water, .water {
     background-color: rgb(81 133 197);
 }
-#grass {
+#grass, .grass {
     background-color: rgb(102 169 69);
 }
-#electric {
+#electric, .electric {
     background-color: rgb(246 216 81);
 }
-#psychic {
+#psychic, .psychic {
     background-color: rgb(221 107 123);
 }
-#ice {
+#ice, .ice {
     background-color: rgb(109 200 235);
 }
-#dragon {
+#dragon, .dragon {
     background-color: rgb(83 92 168);
 }
-#dark {
+#dark, .dark {
     background-color: rgb(76 73 72);
 }
-#fairy {
+#fairy, .fairy {
     background-color: rgb(218 180 212);
 }
+
 #searchArea {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-top: 40px;
     text-align: center;
 }
+
 #searchText {
     box-shadow: 0 4px 4px -4px black;
     border: 1px solid rgb(201, 185, 185);
@@ -157,10 +182,12 @@ main {
     height: 50px;
     font-size: 20px;
 }
+
 #searchImg {
     width: 30px;
     height: 30px;
 }
+
 #searchBtn {
     position: relative;
     bottom: 2.6rem;
@@ -170,10 +197,15 @@ main {
     /* margin-right: 100px; */
     background-color: white;
 }
+
 #pokemonListArea {
+    /* display: flex;
+    justify-content: center; */
     margin-top: 100px;
     text-align: center;
+    /* background-color: var(--grass); */
 }
+
 .pokemonCrad {
     margin-left: 10px;
     box-shadow: 0 4px 4px -4px black;
@@ -186,31 +218,65 @@ main {
     background-color: white;
     cursor: pointer;
 }
+
 .image {
     width: 100px;
 }
+
 .poke-ball {
     top: 5%;
 }
+
 .searchTypeResult {
     display: flex;
     position: relative;
-    top: 48px;
+    top: 6px;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
 }
+
 .searchTypeResult img {
     margin-right: 6px;
 }
+
 .searchTypeResult span {
+    margin-top: 6px;
     font-size: 2rem;
 }
+
 .searchInputArea {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 500px;
+}
+.searchInputControl {
+    width: 500px;
+    height: 0px;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+
+    width: 100vw;
+    height: calc(100% - 80px);
+}
+
+.loading div {
+    display: none;
+}
+
+.loading-pikachu {
+    display: block;
+    background: url("./images/PikaHeader.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 400px;
+    height: 285px;
 }
 
 .image-gif{

@@ -1,15 +1,18 @@
-import { pokomonList } from "./poketmonList.js";
+import { pokemonList, loading } from "./pokemonList.js";
+
+const main = document.getElementById("main");
 const searchText = document.getElementById(`searchText`);
 const searchBtn = document.getElementById(`searchBtn`);
-const pokemonName = document.getElementsByClassName(`pokemonName`);
-const pokemonId = document.getElementsByClassName(`id`);
-const image = document.getElementsByClassName(`image`);
-const type1 = document.getElementsByClassName(`type1`);
-const type2 = document.getElementsByClassName(`type2`);
+const [searchInputControl] =
+    document.getElementsByClassName("searchInputControl");
+
+const pokemonListArea = document.getElementById(`pokemonListArea`);
+
 // 검색 돋보기 클릭 이벤트
 searchBtn.addEventListener(`click`, () => {
     searchEventAll();
 });
+
 // 검색 엔터키 이벤트
 searchText.addEventListener('keyup', () => {
     if (window.event.keyCode === 13) {
@@ -17,11 +20,12 @@ searchText.addEventListener('keyup', () => {
         searchEventAll();
     }
 })
+
 // 클릭, 엔터 이벤트 공통
 export const searchEventAll = () => {
     const idOrName = searchText.value;
-    const pokemonListArea = document.getElementById(`pokemonListArea`);
     pokemonListArea.innerHTML = ``;
+    main.style.height = `auto`;
 
     // 정규식 검색, 다중 검색
     const searchResult = pokemonSearch(idOrName);
@@ -29,17 +33,17 @@ export const searchEventAll = () => {
         addHtml(element);
     });
 }
+
 // 포켓몬 리스트 추가
 const addHtml = (item) => {
-    const pokemonListArea = document.getElementById(`pokemonListArea`);
-    const pokeImg = `poke-ball.png`;
+    const pokeImg = `./images/poke-ball.png`;
     const newTag = document.createElement(`div`);
     newTag.setAttribute(`class`, `pokemonCrad`);
     newTag.setAttribute(`id`, `pokemonCrad_${item.id}`);
 
     // 속성 타입 선택
-    const typeId1 = selectTypes(item.types[0]);
-    const typeId2 = selectTypes(item.types[1]);
+    const typeClass1 = selectTypes(item.types[0]);
+    const typeClass2 = selectTypes(item.types[1]);
 
     newTag.innerHTML = `
                 <p class="pokemonName"><img src="${pokeImg}" alt="" />${item.name}</p>
@@ -48,44 +52,56 @@ const addHtml = (item) => {
                     <img class="image" src="${item.img}" alt="" /><br />
                 </div>
                 <div class="types">
-                    ${item.types.length === 1 ? `<span id="${typeId1}" class="type1" style="border: 1px solid; width: 90%; margin-left: 5%">${item.types[0]}</span>` : ``}
-                    ${item.types.length === 2 ? `<span id="${typeId1}" class="type1">${item.types[0]}</span><span id="${typeId2}" class="type2">${item.types[1]}</span>` : ``}
+                    ${item.types.length === 1 ? `<span class="type1 ${typeClass1}" style="border: 1px solid; width: 90%; margin-left: 5%">${item.types[0]}</span>` : ``}
+                    ${item.types.length === 2 ? `<span class="type1 ${typeClass1}">${item.types[0]}</span><span class="type2 ${typeClass2}">${item.types[1]}</span>` : ``}
                 </div>
                 `;
     pokemonListArea.appendChild(newTag);
 };
 
-
 const pokemonSearch = (input) => {
     const regex = new RegExp(`${input}`, `g`);
-    return pokomonList.filter((pockemon) => pockemon.name.match(regex));
+    return pokemonList.filter((pockemon) => pockemon.name.match(regex));
 };
-const typeButtons = document.querySelectorAll(`button`);
+
+const typeButtons = document.querySelectorAll(`.type_button`);
+
 const typeButtonHandler = (event) => {
-    // pokemonSearch(`이상해`);
-    // searchInputControl.innerHTML =
-    //     `<span class="searchTypeResult"><img src=${event.currentTarget.childNodes[1].src} width="32" height="32" />
-    //         <span>${event.currentTarget.childNodes[3].innerText}</span></span>
-    // ` +
-    //     searchText.outerHTML +
-    //     searchBtn.outerHTML;
-    const pokemonListArea = document.getElementById(`pokemonListArea`);
+    searchInputControl.innerHTML = `<span class="searchTypeResult"><img src=${event.currentTarget.childNodes[1].src} width="32" height="32" />
+            <span>${event.currentTarget.childNodes[3].innerText}</span></span>
+    `;
+
+    console.log("text", event.currentTarget.childNodes[3].innerText);
+
     pokemonListArea.innerHTML = ``;
-    const target = pokomonList.filter((pockemon) =>
-    pockemon.types.includes(event.currentTarget.childNodes[3].innerText),
+    main.style.height = `auto`;
+
+    const target = pokemonList.filter((pokemon) =>
+        pokemon.types.includes(event.currentTarget.childNodes[3].innerText),
     );
+
     // 3. 아래 pokemonListArea 에 포켓몬 보여주기
     console.log(target);
+
+    
     target.forEach((element) => {
         addHtml(element);
     });
 };
 
-typeButtons.forEach(button => {
-    if (button.id !== `searchBtn`) {
-        button.addEventListener(`click`, typeButtonHandler);
+typeButtons.forEach((button) =>
+    button.addEventListener(`click`, typeButtonHandler),
+);
+
+let loadingCheck = setInterval(() => {
+    if (!loading) {
+        // console.log("done", pokemonList);
+        main.classList.remove("loading");
+        main.childNodes[1].style.display = "none";
+
+        clearInterval(loadingCheck);
     }
-});
+}, 1000);
 
 // 속성 타입 선택
 const selectTypes = (type) => {
