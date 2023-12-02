@@ -41,6 +41,7 @@ app.get(`/`, (req, res) => {
     res.sendFile(`index.html`);
 });
 
+// url만 바꿔서 요청
 const setOptions = (url) => {
     return {
         url,
@@ -52,16 +53,15 @@ const setOptions = (url) => {
 };
 
 /**
- *  포켓몬 start~end까지 이름과  url 불러오는 요청
+ *  포켓몬 offset 부터 limit 까지의 이름 불러오는 요청 처리
  */
 app.get(`/pokemons`, (req, res) => {
-    const end = req.query.end;
-    const start = req.query.start;
-    // ={name, url} Array: *1292
+    const limit = req.query.limit;
+    const offset = req.query.offset;
 
     request(
         setOptions(
-            `https://pokeapi.co/api/v2/pokemon?limit=${end}&offset=${start}`,
+            `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`,
         ),
         function (error, response, body) {
             if (!error && response.statusCode == 200) {
@@ -72,6 +72,7 @@ app.get(`/pokemons`, (req, res) => {
     );
 });
 
+// 포켓몬 상세 정보 요청 처리
 app.get(`/pokemon`, (req, res) => {
     const name = req.query.name;
 
@@ -81,18 +82,18 @@ app.get(`/pokemon`, (req, res) => {
             if (!error && response.statusCode == 200) {
                 const result = JSON.parse(body);
                 const pokemon = {
-                    newUrl: result.species.url,
+                    newUrl: result.species.url, // 유효한 species url 저장
                     id: result.id,
                     name: `이름`,
                     enName: `enName`,
                     flavorText: `flavorText`,
                     genera: `genera`,
-                    types: mapEngTypeNameToKorTypeName(result.types), // 한글 속성으로 변경
+                    types: mapEngTypeNameToKorTypeName(result.types), // 한글 속성명으로 변경
                     img:
                         result?.sprites?.versions?.[`generation-v`]?.[
                             `black-white`
                         ]?.animated?.front_default ||
-                        result?.sprites?.front_default,
+                        result?.sprites?.front_default, // .gif 있으면 그거 보여주고 없으면 default image 보여주기
                     height: result.height,
                     weight: result.weight,
                 };
