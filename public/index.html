@@ -4,9 +4,11 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>WOORI 포켓몬 도감</title>
-        <script defer src="./poketmonList.js" type="module"></script>
-        <script defer src="./app.js" type="module"></script>
+        <script defer src="../poketmonList.js" type="module"></script>
+        <script defer src="../app.js" type="module"></script>
         <link rel="stylesheet" href="/style.css" />
+
+        <link rel="icon" href="./images/pokeball.png" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,8 +28,10 @@
                 height="60"
             />
         </header>
-        <main class="main">
+        <main class="loading main" id="main">
+            <span class="loading-pikachu"></span>
             <div id="searchArea">
+                <div class="searchInputControl"></div>
                 <div class="searchInputArea">
                     <input
                         id="searchText"
@@ -39,7 +43,7 @@
                     <button id="searchBtn">
                         <img
                             id="searchImg"
-                            src="search_img.png"
+                            src="./images/search_img.png"
                             alt="search_img"
                         />
                     </button>

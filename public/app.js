@@ -1,27 +1,10 @@
-import { pokomonList } from "./poketmonList.js";
+import { pokemonList, loading } from "./poketmonList.js";
 
-// const testlist = pokomonList[0];
-
-const map = new Map();
-
-map.set(`1`, `bulbasaur`);
-map.set(`이상해씨`, `bulbasaur`);
-map.set(`bulbasaur`, `이상해씨`);
-map.set(`4`, `charmander`);
-map.set(`파이리`, `charmander`);
-map.set(`charmander`, `파이리`);
-map.set(`7`, `squirtle`);
-map.set(`꼬부기`, `squirtle`);
-map.set(`squirtle`, `꼬부기`);
-
+const main = document.getElementById("main");
 const searchText = document.getElementById(`searchText`);
 const searchBtn = document.getElementById(`searchBtn`);
-
-// const pokemonName = document.getElementById(`pokemonName`);
-// const pokemonId = document.getElementById(`id`);
-// const image = document.getElementById(`image`);
-// const type1 = document.getElementById(`type1`);
-// const type2 = document.getElementById(`type2`);
+const [searchInputControl] =
+    document.getElementsByClassName("searchInputControl");
 
 const pokemonName = document.getElementsByClassName(`pokemonName`);
 const pokemonId = document.getElementsByClassName(`id`);
@@ -31,36 +14,14 @@ const type2 = document.getElementsByClassName(`type2`);
 
 searchBtn.addEventListener(`click`, () => {
     const idOrName = searchText.value;
-    console.log(searchText.value);
 
     const te = document.getElementById(`pokemonListArea`);
     te.innerHTML = ``;
 
-    console.log(pokomonList[0]);
-
-    console.log(idOrName);
-
-    const searchPokemon = pokomonList.filter(
-        (element) =>
-            element.name === idOrName || element.id.toString() === idOrName,
-    );
-
     const searchResult = pokemonSearch2(idOrName);
-
-    // addHtml(searchResult);
 
     searchResult.forEach((element) => {
         addHtml(element);
-    });
-
-    searchPokemon.forEach((element) => {
-        pokemonSearch(
-            element.name,
-            element.id,
-            element.types[0],
-            element.types[1],
-            element.img,
-        );
     });
 });
 
@@ -104,8 +65,6 @@ const enterkey = async () => {
 
         const item = await getPekemonInfo(`${map.get(idOrName)}`);
 
-        console.log(pokomonList);
-
         const testlist = pokomonList[0];
 
         pokemonSearch(
@@ -148,41 +107,20 @@ const addHtml = (item) => {
 
 const pokemonSearch2 = (input) => {
     const regex = new RegExp(`${input}`, `g`);
-    return pokomonList.filter((pockemon) => pockemon.name.match(regex));
+    return pokemonList.filter((pokemon) => pokemon.name.match(regex));
 };
 
-const [
-    normalButton,
-    fightingButton,
-    flyingButton,
-    poisonButton,
-    groundButton,
-    rockButton,
-    bugButton,
-    ghostButton,
-    steelButton,
-    fireButton,
-    waterButton,
-    grassButton,
-    electricButton,
-    psychicButton,
-    iceButton,
-    dragonButton,
-    darkButton,
-    fairyButton,
-] = document.getElementsByClassName(`type_button`);
+const typeButtons = document.querySelectorAll(`.type_button`);
 
 const typeButtonHandler = (event) => {
-    pokemonSearch(`이상해`);
-    searchInputControl.innerHTML =
-        `<span class="searchTypeResult"><img src=${event.currentTarget.childNodes[1].src} width="32" height="32" />
+    searchInputControl.innerHTML = `<span class="searchTypeResult"><img src=${event.currentTarget.childNodes[1].src} width="32" height="32" />
             <span>${event.currentTarget.childNodes[3].innerText}</span></span>
-    ` +
-        searchText.outerHTML +
-        searchBtn.outerHTML;
+    `;
 
-    const target = pokomons.filter((pockemon) =>
-        pockemon.types.includes(event.currentTarget.childNodes[3].innerText),
+    console.log("text", event.currentTarget.childNodes[3].innerText);
+
+    const target = pokemonList.filter((pokemon) =>
+        pokemon.types.includes(event.currentTarget.childNodes[3].innerText),
     );
 
     // 3. 아래 pokemonListArea 에 포켓몬 보여주기
@@ -192,3 +130,14 @@ const typeButtonHandler = (event) => {
 typeButtons.forEach((button) =>
     button.addEventListener(`click`, typeButtonHandler),
 );
+
+let loadingCheck = setInterval(() => {
+    if (!loading) {
+        console.log("done", pokemonList.classList);
+        main.classList.remove("loading");
+        main.childNodes[1].style.display = "none";
+        console.log(main.childNodes[1]);
+
+        clearInterval(loadingCheck);
+    }
+}, 1000);

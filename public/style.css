@@ -5,7 +5,7 @@ body {
     padding: 0;
     width: 100%;
     min-width: 480px;
-    height: 300%;
+    height: 100vh;
     font-family: "Black Han Sans", sans-serif;
 }
 
@@ -14,6 +14,8 @@ body {
     position: fixed;
     top: 0;
     align-items: center;
+
+    z-index: 100;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 
     background-color: white;
@@ -156,7 +158,9 @@ main {
 
 #searchArea {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-top: 40px;
     text-align: center;
 }
@@ -214,7 +218,7 @@ main {
 .searchTypeResult {
     display: flex;
     position: relative;
-    top: 48px;
+    top: 6px;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
@@ -225,6 +229,7 @@ main {
 }
 
 .searchTypeResult span {
+    margin-top: 6px;
     font-size: 2rem;
 }
 
@@ -233,4 +238,31 @@ main {
     flex-direction: column;
     align-items: center;
     width: 500px;
+}
+.searchInputControl {
+    width: 500px;
+    height: 0px;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+
+    width: 100vw;
+    height: calc(100% - 80px);
+}
+
+.loading div {
+    display: none;
+}
+
+.loading-pikachu {
+    display: block;
+    background: url("./images/PikaHeader.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 400px;
+    height: 285px;
 }
