@@ -8,6 +8,10 @@ const [searchInputControl] =
 
 const pokemonListArea = document.getElementById(`pokemonListArea`);
 
+document.querySelector(`header > img`).addEventListener(`click`, () => {
+    location.href = `index.html`;
+});
+
 // 검색 돋보기 클릭 이벤트
 searchBtn.addEventListener(`click`, () => {
     const idOrName = searchText.value;
@@ -34,6 +38,7 @@ searchText.addEventListener(`keyup`, () => {
         searchEventAll(searchResult);
     }
 });
+
 // 클릭, 엔터 이벤트 공통
 export const searchEventAll = (target) => {
     if (loadNextPokemons) clearInterval(loadNextPokemons);
@@ -82,6 +87,7 @@ const makeCard = (item) => {
                 </div>
                 `;
     return newTag;
+    /* eslint-enable indent */
 };
 
 // 포켓몬 카드 결과 영역에 추가
@@ -123,22 +129,22 @@ typeButtons.forEach((button) =>
 );
 
 // 최초 10마리 불러왔으면 로딩 화면 중지
-let loadingCheck = setInterval(() => {
+const loadingCheck = setInterval(() => {
     if (!loading) {
-        main.classList.remove("loading");
-        main.childNodes[1].style.display = "none";
+        main.classList.remove(`loading`);
+        main.childNodes[1].style.display = `none`;
         pokemonList.forEach((pokemon) => addHtml(pokemon));
         clearInterval(loadingCheck);
     }
 }, 1000);
 
 // 3초 간격으로 이후에 로드해 온 결과 화면에 추가
-let loadNextPokemons = setInterval(() => {
+const loadNextPokemons = setInterval(() => {
     // 현재 화면에 표시된 포켓몬 아이디 구하기
-    let currentPokemonIds = [];
+    const currentPokemonIds = [];
     for (let index = 0; index < pokemonListArea.children.length; index++) {
         const element = pokemonListArea.children[index].id;
-        currentPokemonIds.push(Number(element.split("_")[1]));
+        currentPokemonIds.push(Number(element.split(`_`)[1]));
     }
     // 새로 추가된 포켓몬 찾아서 화면에 추가
     const newPokemons = pokemonList.filter(
