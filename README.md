@@ -1,9 +1,10 @@
 # frontend-2nd-Pokédex
 
 <br>
+
 <div align="center">
-![](https://velog.velcdn.com/images/mimimya/post/0472159e-e7c0-4e78-b458-28be131fedff/image.png)
-![](https://velog.velcdn.com/images/mimimya/post/338c5639-a434-4f7f-9579-76f98376af42/image.png)
+	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/1c68955d-b5b8-45c4-9a0c-5115a43e6431">
+	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/eeb4a984-1a78-4a17-956b-118b190ae776">
 </div>
 
 ## **🛠️** 활용 기술
