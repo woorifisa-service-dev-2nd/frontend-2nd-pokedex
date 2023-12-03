@@ -9,7 +9,12 @@ const [searchInputControl] =
 const pokemonListArea = document.getElementById(`pokemonListArea`);
 
 document.querySelector(`header > img`).addEventListener(`click`, () => {
-    location.href = `index.html`;
+    //location.href = `index.html`;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    searchInputControl.innerHTML = ``;
+    searchText.value = ``;
+    const searchResult = pokemonSearch(``);
+    searchEventAll(searchResult);
 });
 
 // 검색 돋보기 클릭 이벤트
