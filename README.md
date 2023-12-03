@@ -169,7 +169,7 @@ species:{
 
 #### 2.3 포켓몬 상세 정보 요청 _/pokemon-species  :_
 
-2.2에서 받아온 데이터의 species 프로퍼티 값 `url:https://…/pockmon-species/id}` 을 통해 
+2.2에서 받아온 데이터의 species 프로퍼티 값 `url:https://…/pockmon-species/id` 을 통해 
 
 각 요소마다 `포켓몬 종 API` 주소로 요청을 보냅니다.
 
