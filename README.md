@@ -228,6 +228,8 @@ return pokemonList.filter((pokemon) => pokemon.name.match(regex));
 ## 4.디테일 뷰 (포켓몬 카드게임 형식)
 
 실제 포켓몬 카드게임의 카드를 보듯이 앞면, 뒷면을 나누어 보여주며 포켓몬의 습성, 키, 몸무게와 같이 홈에서 볼 수 없던 더 자세한 정보를 나타냅니다.
+![카드 뒷면](https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/c9514d1f-06f8-48e9-a943-37afd517f703)
+![푸린카드](https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/041e2670-c3ad-44c6-bdda-e3bae7de1e58)
 
 
 
