@@ -1,8 +1,10 @@
 # frontend-2nd-Pokédex
 
-
+<br>
+<div align="center">
 ![](https://velog.velcdn.com/images/mimimya/post/0472159e-e7c0-4e78-b458-28be131fedff/image.png)
 ![](https://velog.velcdn.com/images/mimimya/post/338c5639-a434-4f7f-9579-76f98376af42/image.png)
+</div>
 
 ## **🛠️** 활용 기술
 
@@ -19,8 +21,11 @@
 ## 👨‍👩‍👩‍👩‍주제 및 팀(팀원) 소개
 
 👨‍송원섭
+
 👩‍박은혜
+
 👩‍조명하
+
 👩‍박선주
 
 ## 🤝협업 방식
