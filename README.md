@@ -125,7 +125,7 @@ slack을 주로하여 소통하였고  ESLint, pretteir 세팅 과정 등 정리
 <br/>
 
 #### 1.2 app.js : DOM 조작하기 (아래와 같은 형태로 정보 나타내기)
-<div align="center"><img width="50%" alt="5_card" src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/db3093a4-f506-4bb0-bc08-c2ab741c5534"></div>
+<div align="center"><img width="30%" alt="5_card" src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/db3093a4-f506-4bb0-bc08-c2ab741c5534"></div>
 
 
 <br/><br/>
