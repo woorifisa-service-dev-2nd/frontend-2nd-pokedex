@@ -3,11 +3,15 @@
 <br>
 <div align="center">
 	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/1c68955d-b5b8-45c4-9a0c-5115a43e6431">
-	<br>
-	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/eeb4a984-1a78-4a17-956b-118b190ae776">
 </div>
 <br>
+<div align="center">
+	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/eeb4a984-1a78-4a17-956b-118b190ae776">
+</div>
+
 <br>
+<br>
+
 ## **🛠️** 활용 기술
 
 <div style="display:flex; flex-wrap:wrap;" align="center">
