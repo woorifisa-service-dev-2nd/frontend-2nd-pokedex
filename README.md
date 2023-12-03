@@ -53,7 +53,7 @@ slack을 주로하여 소통하였고  ESLint, pretteir 세팅 과정 등 정리
 ## 🧚‍♀️ESLint 규칙 및 적용 후기
 
 <div align="center">
-	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/84cac60b-8f6d-443c-a5a0-aa230bd8194c">
+	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/3a0299e2-2c4b-41d9-86ae-ddc1294a138e">
 </div>
 
 
@@ -143,14 +143,14 @@ slack을 주로하여 소통하였고  ESLint, pretteir 세팅 과정 등 정리
 요청으로  API가 제공하는 포켓몬들을 List으로 알 수 있습니다.
 
 ```jsx
- {name: 포켓몬, url:https://pokeapi.co/api/v2/pokemon/id}
+ {name: poke, url:https://pokeapi.co/api/v2/pokemon/id}
 ```
 
 <br/>
 
-#### 2.2 포켓몬 정보 요청  _/pokemon/id_ :
+#### 2.2 포켓몬 정보 요청  _/pokemon/name_ :
 
-처음 요청에서 받아온 List 요소의 `url:https://pokeapi.co/api/v2/pokemon/id` 로 요소마다 각각 새로운 요청을 합니다. 
+처음 요청에서 받아온 List 요소의 `name: poke`값으로 요소마다 각각 `url:https://pokeapi.co/api/v2/pokemon/이름`으로 새로운 요청을 합니다. 
 
 ```jsx
 {
