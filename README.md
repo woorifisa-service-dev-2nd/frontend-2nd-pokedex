@@ -1,16 +1,16 @@
 # frontend-2nd-Pokédex
 
-<br>
+<br/>
 <div align="center">
 	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/1c68955d-b5b8-45c4-9a0c-5115a43e6431">
 </div>
-<br>
+<br/>
 <div align="center">
 	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/eeb4a984-1a78-4a17-956b-118b190ae776">
 </div>
 
-<br>
-<br>
+<br/>
+<br/>
 
 ## **🛠️** 활용 기술
 
@@ -22,8 +22,8 @@
     <img style="margin-right:1rem" src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white">
 </div>
 
-<br>
-<br>
+<br/>
+<br/>
 
 ## 👨‍👩‍👩‍👩‍주제 및 팀(팀원) 소개
 
@@ -35,7 +35,7 @@
 
 👩‍박선주
 
-<br><br>
+<br/><br/>
 
 ## 🤝협업 방식
 
@@ -48,7 +48,7 @@ slack을 주로하여 소통하였고  ESLint, pretteir 세팅 과정 등 정리
 <div style="margin: 0 auto; text-align: center;"><img style="margin: 10px auto;" src="https://img.shields.io/badge/zoom-0B5CFF?style=for-the-badge&logo=zoom&logoColor=white"> </div>
 </div>
 
-<br><br>
+<br/><br/>
 
 ## 🧚‍♀️ESLint 규칙 및 적용 후기
 
@@ -71,7 +71,7 @@ slack을 주로하여 소통하였고  ESLint, pretteir 세팅 과정 등 정리
 명확한 규칙으로 코드를 작성하니 서로 작성한 코드를 이해하기 쉬웠고 자동으로 규칙을 맞춰주어 편리했습니다.
 
 
-<br><br>
+<br/><br/>
 
 ## 🤩도메인 용어 정의
 <div align="center">
@@ -95,17 +95,16 @@ slack을 주로하여 소통하였고  ESLint, pretteir 세팅 과정 등 정리
 | selectTypes() | 각 포켓몬별 속성값 리턴 |
 | typeButtonHandler() | 각 속성별 포켓몬 검색 이벤트 핸들러 |
 
-<br>
+<br/>
+<br/>
 
-
-<br>
 <div align="center">
 	<a  href="http://localhost:3000/"><h1>🎠기능 시연</h1></a>
 </div>
 
 
-<br>
-<br>
+<br/>
+<br/>
 
 
 # 🎆핵심 기능 설명 및 구현 방법<br><br>
@@ -118,12 +117,12 @@ slack을 주로하여 소통하였고  ESLint, pretteir 세팅 과정 등 정리
 - `GET /pokemons`로 포켓몬들 이름을 요청하고, 받아온 이름들을 순회하면서
 - `GET /pokemon?name={name}`으로 상세 정보 요청
 
-<br>
+<br/>
 
 #### 1.2 app.js : DOM 조작하기 (아래와 같은 형태로 정보 나타내기)
 ![](https://velog.velcdn.com/images/mimimya/post/16319d5d-c1e8-4e48-b38b-95968ab21439/image.png)
 
-<br><br>
+<br/><br/>
 
 ### 2. 포켓몬 API 요청
 #### 노드 서버와 PokeAPI 사이의 HTTP 요청
@@ -139,7 +138,7 @@ slack을 주로하여 소통하였고  ESLint, pretteir 세팅 과정 등 정리
  {name: 포켓몬, url:https://pokeapi.co/api/v2/pokemon/id}
 ```
 
-<br>
+<br/>
 
 #### 2.2 포켓몬 정보 요청  _/pokemon/id_ :
 
@@ -158,6 +157,7 @@ species:{
 ...(생략)
 }
 ```
+<br/>
 
 #### 2.3 포켓몬 상세 정보 요청 _/pokemon-species  :_
 
@@ -169,14 +169,14 @@ species:{
 
 (2.1번에서 받아온 url에 포함된 id로 요청을 바로 할 수 있겠지만 요청을 세 번으로 나누는 이유는 트러블슈팅 항목을 확인해주세요.)
 
-<br><br>
+<br/><br/>
 
 ## 3.검색 기능 (속성, 이름)
 
 #### 속성과 이름을 가지고 포켓몬 찾기
 ![](https://velog.velcdn.com/images/mimimya/post/1002867d-6e28-4024-a384-6a4048af3598/image.png)
 
-<br>
+<br/>
 
 #### 3.1 속성 검색
 ![](https://velog.velcdn.com/images/mimimya/post/a75b1b91-a2a9-4bde-9bd6-7180b19c9ccb/image.png)
@@ -191,7 +191,7 @@ const target = pokemonList.filter((pokemon) =>
 
 포켓몬 리스트를 순회하며 현재 선택된 타입을 가지고 있는 요소만 리턴합니다.
 
-<br>
+<br/>
 
 #### 3.2 이름 검색
 
@@ -213,7 +213,7 @@ return pokemonList.filter((pokemon) => pokemon.name.match(regex));
 → 전체 포켓몬 리스트를 순회하며 사용자가 입력한 값과 해당 포켓몬의 이름에 일치하는 부분이 있는 요소만 리턴
 
 
-<br>
+<br/>
 
 ## 4.디테일 뷰 (포켓몬 카드게임 형식)
 
@@ -221,8 +221,8 @@ return pokemonList.filter((pokemon) => pokemon.name.match(regex));
 
 
 
-<br>
-<br>
+<br/>
+<br/>
 
 # 😈트러블 슈팅
 
@@ -248,7 +248,7 @@ return pokemonList.filter((pokemon) => pokemon.name.match(regex));
     "url": "https://pokeapi.co/api/v2/pokemon-species/386/"
 }
 ```
-<br>
+<br/>
 
 ### 2. `server.js` API 설계 문제
 
@@ -273,7 +273,7 @@ namesRequest(포켓몬이름API, (err, res, body)=>{
 → 해결 방안 : `GET /pokemons`로는 포켓몬 이름 리스트, `GET /pokemon`으로는 포켓몬 디테일 정보를 불러오도록 요청 분리
 
 
-<br>
+<br/>
 
 ### 3. 요청 처리 속도 문제
 
@@ -289,8 +289,8 @@ PokeAPI에서 정보를 제공하는 포켓몬들의 총 마리수는 **1292!!!*
 → 해결: **한 번에 10마리씩, 70번 요청**으로 수정 후 약 5초의 **로딩** 시간
 
 
-<br>
-<br>
+<br/>
+<br/>
 
 ## 🧐회고
 
