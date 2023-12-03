@@ -108,17 +108,16 @@ slack을 주로하여 소통하였고  ESLint, pretteir 세팅 과정 등 정리
 <br>
 
 
-# 🎆핵심 기능 설명 및 구현 방법
-<br>
+# 🎆핵심 기능 설명 및 구현 방법<br><br>
 
 
-## 1. Client - Server 데이터 전송
+## 1. Client - Server 데이터 전송<br>
 #### 브라우저와 노드 서버 간의 HTTP요청
 ![](https://velog.velcdn.com/images/mimimya/post/f2c205ca-6c8f-4d6d-94ae-5d9847ab63c7/image.png)
 #### 1.1 pokemonList.js : server.js에 요청 보내기
 - `GET /pokemons`로 포켓몬들 이름을 요청하고, 받아온 이름들을 순회하면서
 - `GET /pokemon?name={name}`으로 상세 정보 요청
-- 
+
 <br>
 
 #### 1.2 app.js : DOM 조작하기 (아래와 같은 형태로 정보 나타내기)
