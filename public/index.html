@@ -3,15 +3,18 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>WOORI 포켓몬 도감</title>
-        <script defer src="./poketmonList.js" type="module"></script>
-        <script defer src="./app.js" type="module"></script>
+        <title>Pokédex</title>
+        <script defer src="../pokemonList.js" type="module"></script>
+        <script defer src="../app.js" type="module"></script>
         <link rel="stylesheet" href="/style.css" />
+        <link rel="stylesheet" href="/detail.css" />
+
+        <link rel="icon" href="./images/pokeball.png" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap"
             rel="stylesheet"
         />
     </head>
@@ -26,20 +29,16 @@
                 height="60"
             />
         </header>
-        <main class="main">
+        <main class="loading main" id="main">
+            <span class="loading-pikachu"></span>
             <div id="searchArea">
-                <div>
-                    <input
-                        id="searchText"
-                        type="text"
-                        name=""
-                        onkeyup="enterkey()"
-                    />
-                    <!-- <img id="searchImg" src="search_img.png" alt="search_img" /> -->
+                <div class="searchInputControl"></div>
+                <div class="searchInputArea">
+                    <input id="searchText" type="text" name="" />
                     <button id="searchBtn">
                         <img
                             id="searchImg"
-                            src="search_img.png"
+                            src="./images/search_img.png"
                             alt="search_img"
                         />
                     </button>
@@ -209,16 +208,57 @@
                     <span>페어리</span>
                 </button>
             </div>
-            <div id="pokemonListArea" class="list_container">
-                <!-- <div class="pokemonCrad">
-                    <p class="pokemonName"></p>
-                    <p class="id"></p>
-                    <img class="image" src="" alt="" /><br />
-                    <span class="type1"></span>
-                    <span class="type2"></span>
-                </div> -->
+            <div id="detail-container" class="__invisible">
+                <div id="detail-cards">
+                    <div id="detail-wrap">
+                        <div id="detail-header">
+                            <div id="genera">
+                                <div id="type-wrap"></div>
+                            </div>
+                            <div id="detail-id"></div>
+                        </div>
+                        <div id="detail-card">
+                            <div id="detail-content">
+                                <div id="main-wrap">
+                                    <img id="main-image" src="" />
+                                </div>
+                                <div id="detail-name"></div>
+                                <div id="detail-desc"></div>
+
+                                <div id="info-wrap">
+                                    <div class="detail-info">
+                                        <div class="info-tag">키</div>
+                                        <div
+                                            id="height"
+                                            class="info-content"
+                                        ></div>
+                                    </div>
+                                    <div class="detail-info">
+                                        <div class="info-tag">몸무게</div>
+                                        <div
+                                            id="weight"
+                                            class="info-content"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div class="info-tag">사진</div>
+                                <div id="image-wrap"></div>
+                            </div>
+                        </div>
+                        <div id="btn-wrap">
+                            <button type="button" id="detail-close-btn">
+                                <img src="./images/poke-btn.png" />
+                            </button>
+                        </div>
+                    </div>
+                    <div id="detail-back">
+                        <img src="./images/detail-card-back.jpg" />
+                    </div>
+                </div>
             </div>
+            <div id="pokemonListArea" class="list_container"></div>
         </main>
         <footer></footer>
+        <div id="background" class="__invisible"></div>
     </body>
 </html>
