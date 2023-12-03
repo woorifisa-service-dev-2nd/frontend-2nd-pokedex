@@ -8,7 +8,7 @@
 
 ## **🛠️** 활용 기술
 
-<div style="display:flex; flex-wrap:wrap; align:center;">
+<div style="display:flex; flex-wrap:wrap;" align="center">
   <img style="margin-right:1rem" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
   <img style="margin-right:1rem" src="https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
    <img style="margin-right:1rem" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white">
@@ -32,7 +32,7 @@
 
 slack을 주로하여 소통하였고,  ESLint, pretteir 세팅 과정 등 정리해 두고 볼 것은 notion으로, 비대면일땐 zoom 화면 공유로 코드를 같이보며 소통했습니다.
 
-<div style="display:flex; flex-wrap:wrap; align:center;">
+<div style="display:flex; flex-wrap:wrap;" align="center">
  <img style="margin-right:1rem" src="https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">
    <img style="margin-right:1rem" src="https://img.shields.io/badge/notion-222222?style=for-the-badge&logo=notion&logoColor=white">
 </div>
@@ -110,7 +110,7 @@ slack을 주로하여 소통하였고,  ESLint, pretteir 세팅 과정 등 정�
 ![](https://velog.velcdn.com/images/mimimya/post/16319d5d-c1e8-4e48-b38b-95968ab21439/image.png)
 
 
-### 2 포켓몬 API 요청
+### 2. 포켓몬 API 요청
 #### 노드 서버와 PokeAPI 사이의 HTTP 요청
 
 ![](https://velog.velcdn.com/images/mimimya/post/53d3d965-aaaa-4b24-854f-2dc1d03f6283/image.png)
