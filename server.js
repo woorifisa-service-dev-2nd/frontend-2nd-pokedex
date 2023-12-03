@@ -88,7 +88,11 @@ app.get(`/pokemon`, (req, res) => {
 
                 const imgs = [];
                 for (const key in result.sprites) {
-                    if (typeof result.sprites[key] === `string`) {
+                    if (typeof result.sprites[key] !== `string`) {
+                        continue;
+                    }
+
+                    if (key.includes(`default`)) {
                         imgs.push(result.sprites[key]);
                     }
                 }
