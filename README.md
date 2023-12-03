@@ -287,7 +287,7 @@ namesRequest(포켓몬이름API, (err, res, body)=>{
 
 PokeAPI에서 정보를 제공하는 포켓몬들의 총 마리수는 **1292!!!**
 <div align="center">
-<img width="418" alt="10_net_requests" src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/68fb589e-5e99-4b41-8eef-dad3e84d8c4b"></div>
+<img width="730" alt="10_net_requests" src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/68fb589e-5e99-4b41-8eef-dad3e84d8c4b"></div>
 
 
 약 500마리의 포켓몬 상세정보 요청 1건의  완료 시간: **52초**
