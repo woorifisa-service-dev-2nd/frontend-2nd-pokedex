@@ -42,7 +42,7 @@ slack을 주로하여 소통하였고,  ESLint, pretteir 세팅 과정 등 정�
 
 <div align="center">
 	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/84cac60b-8f6d-443c-a5a0-aa230bd8194c">
-</div>
+
 
 
 
@@ -57,20 +57,22 @@ slack을 주로하여 소통하였고,  ESLint, pretteir 세팅 과정 등 정�
 
 
 명확한 규칙으로 코드를 작성하니 서로 작성한 코드를 이해하기 쉬웠고 자동으로 규칙을 맞춰주어 편리했습니다.
+</div>
 
-<br>
+<br><br>
 
 ## 🤩도메인 용어 정의
 <div align="center">
 <img src ="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/058ff7e1-7292-409e-bdcc-1b314a4536b1"/></div>
 
-
+<div align="center">
 #### 사용한 API 정보:
 
 - `포켓몬 이름 API` : /pokemon?limit={ `limit` }&offset={ `offset` }
 - `포켓몬 디테일 API` : /pokemon/{ `name` } : 아이디, 영어 이름, 타입, 키, 몸무게, 이미지
 - `포켓몬 종 API` : /pokemon-species/{ `name` }  : 한국어 이름, 습성, 종
-
+</div>
+<div align="center">
 #### 용어 정의:
 |메소드| 기능|
 | --- | --- |
@@ -80,15 +82,15 @@ slack을 주로하여 소통하였고,  ESLint, pretteir 세팅 과정 등 정�
 | addHtml() | 검색된 포켓몬 수 만큼 동적으로 HTML태그 추가 |
 | selectTypes() | 각 포켓몬별 속성값 리턴 |
 | typeButtonHandler() | 각 속성별 포켓몬 검색 이벤트 핸들러 |
-
+</div>
 <br>
 
 ---
 
 <br>
 <br>
-<div align="center"><a href = "http://localhost:3000/" ><h1>🎠기능 시연</h1>
-</a></div>
+<a href = "https://localhost:3000/" ><div align="center"><h1>🎠기능 시연</h1></div>
+</a>
 <br>
 <br>
 
