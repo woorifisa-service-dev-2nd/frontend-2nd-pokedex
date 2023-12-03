@@ -39,7 +39,8 @@
 
 ## 🤝협업 방식
 
-slack을 주로하여 소통하였고,  ESLint, pretteir 세팅 과정 등 정리해 두고 볼 것은 notion으로, 비대면일땐 zoom 화면 공유로 코드를 같이보며 소통했습니다.
+slack을 주로하여 소통하였고  ESLint, pretteir 세팅 과정 등 정리해두고 볼 것은 notion으로
+비대면일땐 zoom 화면 공유로 코드를 같이보며 소통했습니다.
 
 <div style="display:flex; flex-wrap:wrap;" align="center">
  <img style="margin-right:1rem" src="https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">
