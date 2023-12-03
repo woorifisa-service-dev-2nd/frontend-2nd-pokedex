@@ -35,9 +35,8 @@ slack을 주로하여 소통하였고,  ESLint, pretteir 세팅 과정 등 정�
 <div style="display:flex; flex-wrap:wrap;" align="center">
  <img style="margin-right:1rem" src="https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">
    <img style="margin-right:1rem" src="https://img.shields.io/badge/notion-222222?style=for-the-badge&logo=notion&logoColor=white">
-</div>
 <div style="margin: 0 auto; text-align: center;">+ <img style="margin: 10px auto;" src="https://img.shields.io/badge/zoom-0B5CFF?style=for-the-badge&logo=zoom&logoColor=white"> </div>
-
+</div>
 
 ## 🧚‍♀️ESLint 규칙 및 적용 후기
 
