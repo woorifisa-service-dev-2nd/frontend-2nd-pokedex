@@ -130,7 +130,7 @@ slack을 주로하여 소통하였고  ESLint, pretteir 세팅 과정 등 정리
 
 <br/><br/>
 
-### 2. 포켓몬 API 요청
+## 2. 포켓몬 API 요청
 #### 노드 서버와 PokeAPI 사이의 HTTP 요청
 <div align="center">
 	<img width="773" alt="6_requests" src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/420890e1-de8d-4e14-abff-a573163a0d38">
