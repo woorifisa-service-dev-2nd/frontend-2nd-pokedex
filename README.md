@@ -1,6 +1,6 @@
 # frontend-2nd-Pokédex
 
-포켓몬 API를 활용해서 포켓몬의 정보를 조회하고 검색할 수 있는 웹사이트
+포켓몬 API를 활용한 포켓몬 도감
 
 <br/>
 <div align="center">
