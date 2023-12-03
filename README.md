@@ -3,9 +3,11 @@
 <br>
 <div align="center">
 	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/1c68955d-b5b8-45c4-9a0c-5115a43e6431">
+	<br>
 	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/eeb4a984-1a78-4a17-956b-118b190ae776">
 </div>
-
+<br>
+<br>
 ## **🛠️** 활용 기술
 
 <div style="display:flex; flex-wrap:wrap;" align="center">
@@ -16,6 +18,7 @@
     <img style="margin-right:1rem" src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white">
 </div>
 
+<br>
 <br>
 
 ## 👨‍👩‍👩‍👩‍주제 및 팀(팀원) 소개
@@ -28,6 +31,8 @@
 
 👩‍박선주
 
+<br><br>
+
 ## 🤝협업 방식
 
 slack을 주로하여 소통하였고,  ESLint, pretteir 세팅 과정 등 정리해 두고 볼 것은 notion으로, 비대면일땐 zoom 화면 공유로 코드를 같이보며 소통했습니다.
@@ -37,6 +42,8 @@ slack을 주로하여 소통하였고,  ESLint, pretteir 세팅 과정 등 정�
    <img style="margin-right:1rem" src="https://img.shields.io/badge/notion-222222?style=for-the-badge&logo=notion&logoColor=white">
 <div style="margin: 0 auto; text-align: center;"><img style="margin: 10px auto;" src="https://img.shields.io/badge/zoom-0B5CFF?style=for-the-badge&logo=zoom&logoColor=white"> </div>
 </div>
+
+<br><br>
 
 ## 🧚‍♀️ESLint 규칙 및 적용 후기
 
@@ -97,7 +104,7 @@ slack을 주로하여 소통하였고,  ESLint, pretteir 세팅 과정 등 정�
 
 
 # 🎆핵심 기능 설명 및 구현 방법
-
+<br>
 
 
 ## 1. Client - Server 데이터 전송
@@ -106,10 +113,13 @@ slack을 주로하여 소통하였고,  ESLint, pretteir 세팅 과정 등 정�
 #### 1.1 pokemonList.js : server.js에 요청 보내기
 - `GET /pokemons`로 포켓몬들 이름을 요청하고, 받아온 이름들을 순회하면서
 - `GET /pokemon?name={name}`으로 상세 정보 요청
+- 
+<br>
 
 #### 1.2 app.js : DOM 조작하기 (아래와 같은 형태로 정보 나타내기)
 ![](https://velog.velcdn.com/images/mimimya/post/16319d5d-c1e8-4e48-b38b-95968ab21439/image.png)
 
+<br><br>
 
 ### 2. 포켓몬 API 요청
 #### 노드 서버와 PokeAPI 사이의 HTTP 요청
@@ -155,12 +165,14 @@ species:{
 
 (2.1번에서 받아온 url에 포함된 id로 요청을 바로 할 수 있겠지만 요청을 세 번으로 나누는 이유는 트러블슈팅 항목을 확인해주세요.)
 
-<br>
+<br><br>
 
 ## 3.검색 기능 (속성, 이름)
 
 #### 속성과 이름을 가지고 포켓몬 찾기
 ![](https://velog.velcdn.com/images/mimimya/post/1002867d-6e28-4024-a384-6a4048af3598/image.png)
+
+<br>
 
 #### 3.1 속성 검색
 ![](https://velog.velcdn.com/images/mimimya/post/a75b1b91-a2a9-4bde-9bd6-7180b19c9ccb/image.png)
@@ -174,6 +186,8 @@ const target = pokemonList.filter((pokemon) =>
 ```
 
 포켓몬 리스트를 순회하며 현재 선택된 타입을 가지고 있는 요소만 리턴합니다.
+
+<br>
 
 #### 3.2 이름 검색
 
