@@ -100,7 +100,7 @@ slack을 주로하여 소통하였고  ESLint, pretteir 세팅 과정 등 정리
 
 <div align="center">
 	<a  href="http://localhost:3000/"><h1>🎠기능 시연</h1></a>
-	[] (http://localhost:3000/)
+	[http://localhost:3000/] (http://localhost:3000/)
 </div>
 
 
