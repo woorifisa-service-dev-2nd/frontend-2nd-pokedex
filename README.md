@@ -89,7 +89,8 @@ slack을 주로하여 소통하였고,  ESLint, pretteir 세팅 과정 등 정�
 
 <br>
 <br>
-<div align="center">[🎠기능 시연](https://localhost:3000/)</div>
+<a align="center" href="http://localhost:3000/"><h1>🎠기능 시연</h1></a>
+
 
 <br>
 <br>
