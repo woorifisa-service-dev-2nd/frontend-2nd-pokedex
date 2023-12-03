@@ -1,7 +1,6 @@
 # frontend-2nd-Pokédex
 
 <br>
-
 <div align="center">
 	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/1c68955d-b5b8-45c4-9a0c-5115a43e6431">
 	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/eeb4a984-1a78-4a17-956b-118b190ae776">
@@ -9,7 +8,7 @@
 
 ## **🛠️** 활용 기술
 
-<div style="display:flex; flex-wrap:wrap; justify-content:center;">
+<div style="display:flex; flex-wrap:wrap; align:center;">
   <img style="margin-right:1rem" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
   <img style="margin-right:1rem" src="https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
    <img style="margin-right:1rem" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white">
@@ -33,7 +32,7 @@
 
 slack을 주로하여 소통하였고,  ESLint, pretteir 세팅 과정 등 정리해 두고 볼 것은 notion으로, 비대면일땐 zoom 화면 공유로 코드를 같이보며 소통했습니다.
 
-<div style="display:flex; flex-wrap:wrap; justify-content:center;">
+<div style="display:flex; flex-wrap:wrap; align:center;">
  <img style="margin-right:1rem" src="https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">
    <img style="margin-right:1rem" src="https://img.shields.io/badge/notion-222222?style=for-the-badge&logo=notion&logoColor=white">
 </div>
@@ -42,27 +41,29 @@ slack을 주로하여 소통하였고,  ESLint, pretteir 세팅 과정 등 정�
 
 ## 🧚‍♀️ESLint 규칙 및 적용 후기
 
-![](https://velog.velcdn.com/images/mimimya/post/c5048773-3aca-48fa-843c-b8c26973ade7/image.png)
-
+<div align="center">
+	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/84cac60b-8f6d-443c-a5a0-aa230bd8194c">
+</div>
 
 
 
 ### ESLint 규칙+prettier 규칙
 > - 변수명 CamelCase 사용
-- 선언 후 재할당되지 않는 변수에 대해 const 키워드 사용
-- 세미콜론 항상 사용
-- 따옴표는 backtic(`)만 사용
-- 들여쓰기 4칸
-- CSS속성이 정렬되도록 설정
-- 여러 줄을 사용할 때 쉼표 붙임
-
+> - 선언 후 재할당되지 않는 변수에 대해 const 키워드 사용
+> - 세미콜론 항상 사용
+> - 따옴표는 backtic(`)만 사용
+> - 들여쓰기 4칸
+> - CSS속성이 정렬되도록 설정
+> - 여러 줄을 사용할 때 쉼표 붙임
 
 
 명확한 규칙으로 코드를 작성하니 서로 작성한 코드를 이해하기 쉬웠고 자동으로 규칙을 맞춰주어 편리했습니다.
 
-## 🤩도메인 용어 정의
+<br>
 
-![](https://velog.velcdn.com/images/mimimya/post/21ddc7f7-002d-4ef5-a4e5-e3f446a9a4f5/image.png)
+## 🤩도메인 용어 정의
+<div align="center">
+<img src ="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/058ff7e1-7292-409e-bdcc-1b314a4536b1"/></div>
 
 
 #### 사용한 API 정보:
@@ -87,7 +88,7 @@ slack을 주로하여 소통하였고,  ESLint, pretteir 세팅 과정 등 정�
 
 <br>
 <br>
-<div style="text-align:center"><a href = "http://localhost:3000/" ><h1>🎠기능 시연</h1>
+<div align="center"><a href = "http://localhost:3000/" ><h1>🎠기능 시연</h1>
 </a></div>
 <br>
 <br>
