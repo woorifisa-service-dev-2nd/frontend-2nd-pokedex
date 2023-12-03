@@ -1,5 +1,7 @@
 # frontend-2nd-Pokédex
 
+포켓몬 API를 활용해서 포켓몬의 정보를 조회하고 검색할 수 있는 웹사이트
+
 <br/>
 <div align="center">
 	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/1c68955d-b5b8-45c4-9a0c-5115a43e6431">
@@ -39,8 +41,7 @@
 
 ## 🤝협업 방식
 
-slack을 주로하여 소통하였고 ESLint, pretteir 세팅 과정 등 정리해두고 볼 것은 notion으로
-비대면일땐 zoom 화면 공유로 코드를 같이보며 소통했습니다.
+소통은 `슬랙`, 문서화는 `노션`, 개발 진행 상황 공유는 `줌 화면 공유`를 활용
 
 <div style="display:flex; flex-wrap:wrap;" align="center">
  <img style="margin-right:1rem" src="https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">
@@ -66,7 +67,7 @@ slack을 주로하여 소통하였고 ESLint, pretteir 세팅 과정 등 정리�
 > -   CSS속성이 정렬되도록 설정
 > -   여러 줄을 사용할 때 쉼표 붙임
 
-명확한 규칙으로 코드를 작성하니 서로 작성한 코드를 이해하기 쉬웠고 자동으로 규칙을 맞춰주어 편리했습니다.
+코드의 가독성이 높아져서 다른 사람의 코드를 이해하기가 쉬웠고 자동으로 규칙에 맞게 코드를 바꿔줘서 편리했습니다.
 
 <br/><br/>
 
@@ -76,11 +77,13 @@ slack을 주로하여 소통하였고 ESLint, pretteir 세팅 과정 등 정리�
 
 #### 사용한 API 정보:
 
--   `포켓몬 이름 API` : /pokemon?limit={ `limit` }&offset={ `offset` }
+-   `포켓몬 이름 API` : /pokemon?limit={ `limit` }&offset={ `offset` } : 영어 이름들
 -   `포켓몬 디테일 API` : /pokemon/{ `name` } : 아이디, 영어 이름, 타입, 키, 몸무게, 이미지
 -   `포켓몬 종 API` : /pokemon-species/{ `name` } : 한국어 이름, 습성, 종
 
 #### 용어 정의:
+
+함수의 기능을 최대한 직관적으로 표현할 수 있도록 네이밍
 
 | 메소드              | 기능                                                            |
 | ------------------- | --------------------------------------------------------------- |
@@ -96,81 +99,79 @@ slack을 주로하여 소통하였고 ESLint, pretteir 세팅 과정 등 정리�
 
 # [🎠기능 시연](http://localhost:3000/)
 
+0. 로딩
+
+1. 포켓몬 추가
+
+2. 상세정보 모달
+
+3. 로고 클릭
+
+4. 속성 버튼 클릭
+
+5. 이름 검색
+
 <br/>
 <br/>
 
 # 🎆핵심 기능 설명 및 구현 방법<br><br>
 
-## 1. Client - Server 데이터 전송<br>
-
-#### 브라우저와 노드 서버 간의 HTTP요청
+## 1. Client 파일 분리<br>
 
 <div align="center">
-<img alt="4_cl_serv" src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/84cac60b-8f6d-443c-a5a0-aa230bd8194c">
+<img alt="4_cl_serv" src="./client-server.png">
 </div>
 
-#### 1.1 pokemonList.js : server.js에 요청 보내기
+#### 1.1 pokemonList.js : server.js에 포켓몬 정보 요청 코드
 
 -   `GET /pokemons`로 포켓몬들 이름을 요청하고, 받아온 이름들을 순회하면서
 -   `GET /pokemon?name={name}`으로 상세 정보를 요청합니다.
 
 <br/>
 
-#### 1.2 app.js : DOM 조작하기 (아래와 같은 형태로 정보 나타내기)
+#### 1.2 app.js : DOM 조작 코드 (아래와 같은 형태로 정보 나타내기)
 
 <div align="center"><img width="30%" alt="5_card" src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/db3093a4-f506-4bb0-bc08-c2ab741c5534"></div>
 
 <br/><br/>
 
-## 2. 포켓몬 API 요청
-
-#### 노드 서버와 PokeAPI 사이의 HTTP 요청
+## 2. 서버가 포켓몬 API에 요청
 
 <div align="center">
-	<img width="773" alt="6_requests" src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/420890e1-de8d-4e14-abff-a573163a0d38">
+	<img width="773" alt="6_requests" src="server-architecture.png">
 </div>
 
-#### 2.1 포켓몬 이름 리스트 요청 _/pokemon/?limit=end_ :
+#### 2.1 포켓몬 이름 API 요청
 
-`https://pokeapi.co/api/v2/pokemon/?limit=끝 번호&offset=시작번호`
-
-요청으로 API가 제공하는 포켓몬들을 List으로 알 수 있습니다.
-
-```jsx
- {name: poke, url:https://pokeapi.co/api/v2/pokemon/id}
+```javascript
+// 요청 결과
+ [{'name': 'pikachu', 'url':'https://pokeapi.co/api/v2/pokemon/1'}, ...]
 ```
 
 <br/>
 
-#### 2.2 포켓몬 정보 요청 _/pokemon/name_ :
+#### 2.2 포켓몬 디테일 API 요청
 
-처음 요청에서 받아온 List 요소의 `name: poke`값으로 요소마다 각각 `url:https://pokeapi.co/api/v2/pokemon/이름`으로 새로운 요청을 합니다.
+처음 요청에서 받아온 배열의 `name: pikachu`값으로 요소마다 각각 `디테일API`로 상세정보 요청
 
-```jsx
+```javascript
+// 요청 결과
 {
-abilities:,
-forms:,
-game_indices:,
-...(생략)
-species:{
-	name:"ditto"
-	url:"https://pokeapi.co/api/v2/pokemon-species/132/"
+'species':{
+	'name':"ditto"
+	'url':"https://pokeapi.co/api/v2/pokemon-species/132/"
 },
-...(생략)
+...,
 }
 ```
 
 <br/>
 
-#### 2.3 포켓몬 상세 정보 요청 _/pokemon-species :_
+#### 2.3 포켓몬 종 API 요청
 
-2.2에서 받아온 데이터의 species 프로퍼티 값 `url:https://…/pockmon-species/id` 을 통해
-
-각 요소마다 `포켓몬 종 API` 주소로 요청을 보냅니다.
+2.2에서 받아온 데이터의 species.url로 각 요소마다 `포켓몬 종 API`로 요청을 보냅니다.
 
 그러면 결과적으로 포켓몬의 키, 몸무게, 속성, 습성등이 담겨있는 데이터를 받을 수 있습니다.
-
-(요청을 세 번으로 나누는 이유는 트러블슈팅 항목을 확인해주세요.)
 
 <br/><br/>
 
@@ -188,40 +189,23 @@ species:{
 
 ![8_class](https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/8837ad97-9995-4b06-a238-75d9210126bd)
 
-```jsx
-const target = pokemonList.filter((pokemon) =>
-    pokemon.types.includes(selectedType),
-);
-```
-
-포켓몬 리스트를 순회하며 현재 선택된 타입을 가지고 있는 요소만 리턴합니다.
-
 <br/>
 
 #### 3.2 이름 검색
 
 ![9_name](https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/ba505e9a-d247-4d0b-bc23-bdf29cb1c67d)
 
-PokeAPI에서 제공하는 api들은 기본적으로 포켓몬의 영어 이름으로 요청하게 되어 있습니다.
+사실 포켓몬 API 에서 제공하는 것들은 기본적으로 영어 이름와 영어 속성명으로 요청하고 정보를 보여 주게 되어 있음
 
-따라서, 한국어 이름으로 포켓몬을 검색하려면 영어 이름과 한국어 이름을 매칭시켜야 합니다.
+→ 포켓몬의 한국어 이름을 알려 주는 `종 api` 사용
 
-`포켓몬 종 API` 를 사용해 영어 이름과 한국어 이름을 모두 저장하고,
-
-정규표현식(문자열에서 특정 문자 조합을 찾기 위한 패턴)을 사용하여 검색 기능을 구현하였습니다.
-
-```jsx
-const regex = new RegExp(`${userInput}`, `g`);
-return pokemonList.filter((pokemon) => pokemon.name.match(regex));
-```
-
-→ 전체 포켓몬 리스트를 순회하며 사용자가 입력한 값과 해당 포켓몬의 이름에 일치하는 부분이 있는 요소만 리턴
+→ 속성명은 따로 번역해서 사용
 
 <br/>
 
 ## 4.디테일 뷰 (포켓몬 카드게임 형식)
 
-실제 포켓몬 카드게임의 카드를 보듯이 앞면, 뒷면을 나누어 보여주며 포켓몬의 습성, 키, 몸무게와 같이 홈에서 볼 수 없던 더 자세한 정보를 나타냅니다.
+실제 포켓몬 카드게임의 카드를 보듯이 앞면, 뒷면을 나누어 보여주며 포켓몬의 습성, 키, 몸무게와 같이 메인 화면에서 볼 수 없던 더 자세한 정보를 보여줌
 
 <div style="display:flex; flex-wrap:wrap;" align="center">
 	<img width="30%" src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/c9514d1f-06f8-48e9-a943-37afd517f703" alt="카드 뒷면"/>
@@ -235,11 +219,11 @@ return pokemonList.filter((pokemon) => pokemon.name.match(regex));
 
 ### 1. PokeAPI 호출 순서 문제
 
-→ API가 지원하는 여러 포켓몬의 정보를 가져오는 API는 `포켓몬 이름 API`밖에 없음.
+→ 특정 한 마리가 아니라 여러 포켓몬의 정보를 가져오는 API는 `포켓몬 이름 API`밖에 없음
 
 → `포켓몬 이름 API`를 먼저 호출하고 여기서 주는 영어 이름을 이용해서 상세 정보를 불러와야 함
 
-그렇다면 `포켓몬 디테일 API`과 `포켓몬 종 API` 중에서 어떤 걸 먼저 호출해야 할까?🤔
+그렇다면 `포켓몬 디테일 API`과 `포켓몬 종 API` 중에서 어떤 걸 먼저 호출해야 할까? 동시에 호출해도 될까?🤔
 
 → 정답 : 1) `포켓몬 이름 API` 2) `포켓몬 디테일 API` 3) `포켓몬 종 API`
 
@@ -247,20 +231,13 @@ return pokemonList.filter((pokemon) => pokemon.name.match(regex));
 
 → 해결 방법 : `포켓몬 디테일 API` 에서 주는 species.url을 사용
 
-```jsx
-"species": {
-    "name": "deoxys",
-    "url": "https://pokeapi.co/api/v2/pokemon-species/386/"
-}
-```
-
 <br/>
 
 ### 2. `server.js` API 설계 문제
 
 → 클라이언트에서는 포켓몬 정보를 담은 리스트만 있으면 되니까 `GET /pokemons` 하나로 다 처리해볼까?
 
-→ `포켓몬 이름 API`로 받아온 이름들을 순회하면서 `포켓몬 디테일, 종 API` 호출
+→ namesRequest로 `포켓몬 이름 API`로 받아온 이름들을 순회하면서 `포켓몬 디테일, 종 API` 호출하는 방식
 
 ```jsx
 namesRequest(포켓몬이름API, (err, res, body) => {
@@ -274,9 +251,9 @@ namesRequest(포켓몬이름API, (err, res, body) => {
 });
 ```
 
-→ 문제점 : deatilRequest와 speciesRequest의 url 값을 업데이트하려 할 때 `[ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client`발생
+→ 문제점 : 맨 처음의 요청은 잘 가는데, 두 번째 이후의 이름을 가지고 deatilRequest와 speciesRequest의 url 값을 업데이트하려 할 때 `[ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client`발생
 
-→ 해결 방안 : `GET /pokemons`로는 포켓몬 이름 리스트, `GET /pokemon`으로는 포켓몬 디테일 정보를 불러오도록 요청 분리
+→ 해결 방안 : 이름 리스트를 받아오는 요청(`GET /pokemons`)과 디테일 정보를 받아오는 요청(`GET /pokemon`)을 분리
 
 <br/>
 
