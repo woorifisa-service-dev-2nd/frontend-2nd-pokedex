@@ -74,8 +74,8 @@ slack을 주로하여 소통하였고  ESLint, pretteir 세팅 과정 등 정리
 <br/><br/>
 
 ## 🤩도메인 용어 정의
-<div align="center">
-<img src ="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/058ff7e1-7292-409e-bdcc-1b314a4536b1"/></div>
+
+<img src ="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/058ff7e1-7292-409e-bdcc-1b314a4536b1"/>
 
 
 #### 사용한 API 정보:
