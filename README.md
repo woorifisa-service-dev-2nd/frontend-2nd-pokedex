@@ -112,7 +112,10 @@ slack을 주로하여 소통하였고  ESLint, pretteir 세팅 과정 등 정리
 
 ## 1. Client - Server 데이터 전송<br>
 #### 브라우저와 노드 서버 간의 HTTP요청
-![](https://velog.velcdn.com/images/mimimya/post/f2c205ca-6c8f-4d6d-94ae-5d9847ab63c7/image.png)
+<div align="center">
+<img alt="4_cl_serv" src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/84cac60b-8f6d-443c-a5a0-aa230bd8194c">
+</div>
+
 #### 1.1 pokemonList.js : server.js에 요청 보내기
 - `GET /pokemons`로 포켓몬들 이름을 요청하고, 받아온 이름들을 순회하면서
 - `GET /pokemon?name={name}`으로 상세 정보 요청
@@ -120,14 +123,17 @@ slack을 주로하여 소통하였고  ESLint, pretteir 세팅 과정 등 정리
 <br/>
 
 #### 1.2 app.js : DOM 조작하기 (아래와 같은 형태로 정보 나타내기)
-![](https://velog.velcdn.com/images/mimimya/post/16319d5d-c1e8-4e48-b38b-95968ab21439/image.png)
+<div align="center"><img alt="5_card" src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/db3093a4-f506-4bb0-bc08-c2ab741c5534"></div>
+
 
 <br/><br/>
 
 ### 2. 포켓몬 API 요청
 #### 노드 서버와 PokeAPI 사이의 HTTP 요청
+<div align="center">
+	<img width="773" alt="6_requests" src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/420890e1-de8d-4e14-abff-a573163a0d38">
+</div>
 
-![](https://velog.velcdn.com/images/mimimya/post/53d3d965-aaaa-4b24-854f-2dc1d03f6283/image.png)
 #### 2.1 포켓몬 이름 리스트 요청 _/pokemon/?limit=end_ :
 
 `https://pokeapi.co/api/v2/pokemon/?limit=끝 번호&offset=시작번호`
@@ -174,12 +180,14 @@ species:{
 ## 3.검색 기능 (속성, 이름)
 
 #### 속성과 이름을 가지고 포켓몬 찾기
-![](https://velog.velcdn.com/images/mimimya/post/1002867d-6e28-4024-a384-6a4048af3598/image.png)
+<div align="center">
+	<img src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/1d12f5c0-c93e-48f7-b06c-8499c554c534"/>
+</div>
 
 <br/>
 
 #### 3.1 속성 검색
-![](https://velog.velcdn.com/images/mimimya/post/a75b1b91-a2a9-4bde-9bd6-7180b19c9ccb/image.png)
+![8_class](https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/8837ad97-9995-4b06-a238-75d9210126bd)
 
 
 
@@ -195,7 +203,7 @@ const target = pokemonList.filter((pokemon) =>
 
 #### 3.2 이름 검색
 
-![](https://velog.velcdn.com/images/mimimya/post/a5c2e8e9-abc9-4fe0-8e3b-4ce908ac9890/image.png)
+![9_name](https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/ba505e9a-d247-4d0b-bc23-bdf29cb1c67d)
 
 PokeAPI에서 제공하는 api들은 기본적으로 포켓몬의 영어 이름으로 요청하게 되어 있습니다.
 
@@ -278,8 +286,8 @@ namesRequest(포켓몬이름API, (err, res, body)=>{
 ### 3. 요청 처리 속도 문제
 
 PokeAPI에서 정보를 제공하는 포켓몬들의 총 마리수는 **1292!!!**
-
-![](https://velog.velcdn.com/images/mimimya/post/2d19ae74-f8b3-405a-a51f-0e4216c9c10c/image.png)
+<div align="center">
+<img width="418" alt="10_net_requests" src="https://github.com/woorifisa-service-dev-2nd/frontend-2nd-service/assets/101613808/68fb589e-5e99-4b41-8eef-dad3e84d8c4b"></div>
 
 
 약 500마리의 포켓몬 상세정보 요청 1건의  완료 시간: **52초**
