@@ -43,7 +43,7 @@ const getPokemonGroups = async () => {
             });
 
             if (offset === 0) {
-                console.log(`offset`, offset);
+                console.log(`offset`, offset, `limit`, limit);
                 console.log(names);
             }
         });
