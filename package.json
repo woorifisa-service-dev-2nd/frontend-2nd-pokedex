@@ -10,6 +10,7 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "cypress": "^13.6.0",
         "eslint": "^8.54.0",
         "eslint-config-standard": "^17.1.0",
         "eslint-plugin-import": "^2.29.0",
@@ -17,7 +18,8 @@
         "eslint-plugin-promise": "^6.1.1",
         "postcss": "^8.4.31",
         "prettier": "^3.1.0",
-        "prettier-plugin-css-order": "^2.0.1"
+        "prettier-plugin-css-order": "^2.0.1",
+        "vitest": "^1.0.1"
     },
     "dependencies": {
         "eslint-config-prettier": "^9.0.0",
