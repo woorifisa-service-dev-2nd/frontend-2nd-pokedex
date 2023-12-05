@@ -1,6 +1,6 @@
 export let pokemonList = [];
 export let loading;
-export let limit;
+export let limit = 1292;
 
 // 처음은 로딩화면 보여주는 걸로 시작
 loading = true;

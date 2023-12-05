@@ -9,8 +9,7 @@ const [searchInputControl] =
 const pokemonListArea = document.getElementById(`pokemonListArea`);
 
 document.querySelector(`header > img`).addEventListener(`click`, () => {
-    //location.href = `index.html`;
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: `smooth` });
     searchInputControl.innerHTML = ``;
     searchText.value = ``;
     const searchResult = pokemonSearch(``);
